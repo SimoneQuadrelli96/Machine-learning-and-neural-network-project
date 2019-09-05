@@ -1,0 +1,90 @@
+\documentclass{article}
+
+\usepackage{float}
+\usepackage{graphicx}
+
+
+\begin{document}
+\begin{titlepage}
+	
+	
+	\begin{center}
+		\vspace{2 cm}
+		{\Large \textsc{Simone Quadrelli} }
+	\end{center}
+	
+	
+	\begin{figure}[H]
+		\vspace{2 cm}
+		\centering
+		\includegraphics[width=0.30\linewidth]{tesiSCIENZE_TECNOLOGIE.jpg}
+		
+	\end{figure}
+	
+	\begin{center}
+		\vspace{2 cm}
+		{\Large \textsc{Machine learning project} }
+	\end{center}
+
+	\par
+	\vspace{3 cm}
+	
+	\begin{center}
+		{\large Academic year 2018 - 2019}
+	\end{center}
+\end{titlepage}
+
+ \pagenumbering{gobble}
+\newpage 
+\pagenumbering{roman}
+\tableofcontents
+\listoftables
+\listoffigures
+\newpage
+
+\pagenumbering{arabic}
+short abstract: what are your going to present in the report \\
+statement of the problem/goal of the analysis and description of the data set(s) \\
+list of three to five findings/keypoints \\
+the analysis with wise commentary  \\
+(optional) theoretical background of the used methods \\
+conclusions (should include the findings/keypoints) \\
+the Appendix, containing all the R code \\
+
+\section{Introduction}
+
+
+The present project addresses the fruit and vegetable multiclass classification problem. Its objective of this project is to classify a variety of fruits and vegetables whose images are stored in a recently released dataset.\\
+Fruit and vegetable classification is a challenging task, there are two different kind of problems that must be overcome: vegetables and fruits within the same class can differ in shape and colour due to maturity and growth. On the countrary, vegetables and fruits in different classes, such as red apples or grapes, may be very similar both in textures and in colours. 
+Fruit and vegetable classification has a key role in many industries: it can be exploited to make agriculter more autonomous than ever before in history, but it can also be applied to all stages of the supply chain to assess the quality of the products from the producer to the consumer. 
+The ability of harvesting robots can be enhanced by enforcing fruit and vegetables recognition, indeed it may allow them to recognize not only the type of fruit or vegetable but also its maturity or wheter it is rotten. Moreover, autonomous classification provides more consistent quality assessment since it does not depend of the opinion of different workers.
+\\\\
+The projects will analyze the classification performance of three machine learning algorithms on different fruits. The k-nearest neighbour (knn) algorithm was used to compute a baseline, a more sophistocated, the support vector machines (SVM) algorithm was later used for classification. The last approach was to construct a convolutional neural network becausethey are knoen to suit well the image classification. The are two different kind of features that were extracted to feed the algorithms: the grayscale and the rgb representation of the images.
+
+The objective of the project are
+\begin{itemize}
+\item analyze the classification performance of the algorithm using the grayscale on a variety of fruits
+\item analyze the classification performance of the algorithm using the grb scale on a variety of fruits
+\item   analyze the classification performance of the algorithm using the grb scale on similar fruits
+\item   analyze the classification performance of the algorithm using the grb scale on very different fruits
+\end{itemize}
+
+\section{Dataset and Features}
+The analyzed dataset, known as Fruits 360, was originally published in 2017  by Horea Muresan and Mihai Olteanto address fruit and vegetable classification \cite{dataset}. The existence of either too small datasets or too low quality dataset was most compelling problem about fruit classifiction.  On the countrary, this dataset provides more that 70000 images of 114 different fruit and vegetables, each image has a definition of 100 $\times$ 100 pixels. To increase the reliability of the results thare are images of rotated fruits and vegetables, however those images make the training process much harder.
+As the authors explain, the dataset was produced as follows: fruits and vegetables were planted in the shaft of a low speed motor (3 rpm) and a short movie of 20 seconds was recorded. However, due to the variations in the lighting conditions, the background was not uniform and a dedicated algorithm was exploited to extract the fruit from the background. The images were of such high quality that no preprocessing was required.
+It is also worth noticing that the dataset was already splitted in train and test set, therefore no further splitting was done.\\
+Fruits and vegetables have several distinct visual characteristics that can be extracted from the images. Colour, shape, size and texture are the most commonly used features in image classification. Colours features are not difficult to extract and seem to suit the domain \cite{review}. Grayscale values and rgb values features were extracted. 
+
+
+\begin{thebibliography}{9}
+
+\bibitem{dataset}
+\textit{Horea Muresan, Mihai Oltean, Fruit recognition from images using deep learning, Acta Univ. Sapientiae, Informatica Vol. 10, Issue 1, pp. 26-42, 2018.}
+
+\bibitem{review}
+\textit{Khurram Hameed, Douglas Chai, Alexander Rassau, A comprehensive review of fruit and vegetable classification techniques. Image and Vision Computing 80 (2018) 22-44.}
+\end{thebibliography}
+ 
+\end{document}
+
+
