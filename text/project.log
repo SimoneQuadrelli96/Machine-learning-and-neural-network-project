@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  6 SEP 2019 13:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  6 SEP 2019 15:16
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -23,21 +23,54 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen103
+\captionmargin@=\dimen104
+\captionwidth=\dimen105
+\caption@tempdima=\dimen106
+\caption@indent=\dimen107
+\caption@parindent=\dimen108
+\caption@hangindent=\dimen109
+)
+\c@ContinuedFloat=\count87
+)
+\c@KVtest=\count88
+\sf@farskip=\skip43
+\sf@captopadj=\dimen110
+\sf@capskip=\skip44
+\sf@nearskip=\skip45
+\c@subfigure=\count89
+\c@subfigure@save=\count90
+\c@lofdepth=\count91
+\c@subtable=\count92
+\c@subtable@save=\count93
+\c@lotdepth=\count94
+\sf@top=\skip46
+\sf@bottom=\skip47
+)
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count87
-\float@exts=\toks14
+\c@float@type=\count95
+\float@exts=\toks15
 \float@box=\box26
-\@float@everytoks=\toks15
+\@float@everytoks=\toks16
 \@floatcapt=\box27
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks16
-)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
@@ -52,8 +85,8 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen103
-\Gin@req@width=\dimen104
+\Gin@req@height=\dimen111
+\Gin@req@width=\dimen112
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
@@ -63,7 +96,7 @@ nment
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks17
-\c@algorithm=\count88
+\c@algorithm=\count96
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
@@ -72,46 +105,55 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count89
-\c@ALG@rem=\count90
-\c@ALG@nested=\count91
-\ALG@tlm=\skip43
-\ALG@thistlm=\skip44
-\c@ALG@Lnr=\count92
-\c@ALG@blocknr=\count93
-\c@ALG@storecount=\count94
-\c@ALG@tmpcounter=\count95
-\ALG@tmplength=\skip45
+\c@ALG@line=\count97
+\c@ALG@rem=\count98
+\c@ALG@nested=\count99
+\ALG@tlm=\skip48
+\ALG@thistlm=\skip49
+\c@ALG@Lnr=\count100
+\c@ALG@blocknr=\count101
+\c@ALG@storecount=\count102
+\c@ALG@tmpcounter=\count103
+\ALG@tmplength=\skip50
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (./project.aux)
+) (/usr/share/texlive/texmf-dist/tex/latex/changepage/changepage.sty
+Package: changepage 2009/10/20 v1.0c check page and change page layout
+\c@cp@cntr=\count104
+\cp@tempcnt=\count105
+)
+(./project.aux)
 \openout1 = `project.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count96
-\scratchdimen=\dimen105
+\scratchcounter=\count106
+\scratchdimen=\dimen113
 \scratchbox=\box28
-\nofMPsegments=\count97
-\nofMParguments=\count98
+\nofMPsegments=\count107
+\nofMParguments=\count108
 \everyMPshowfont=\toks18
-\MPscratchCnt=\count99
-\MPscratchDim=\dimen106
-\MPnumerator=\count100
-\makeMPintoPDFobject=\count101
+\MPscratchCnt=\count109
+\MPscratchDim=\dimen114
+\MPnumerator=\count110
+\makeMPintoPDFobject=\count111
 \everyMPtoPDFconversion=\toks19
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -172,7 +214,7 @@ e
 <tesiSCIENZE_TECNOLOGIE.jpg, id=1, 88.1694pt x 84.5559pt>
 File: tesiSCIENZE_TECNOLOGIE.jpg Graphic file (type jpg)
 <use tesiSCIENZE_TECNOLOGIE.jpg>
-Package pdftex.def Info: tesiSCIENZE_TECNOLOGIE.jpg  used on input line 22.
+Package pdftex.def Info: tesiSCIENZE_TECNOLOGIE.jpg  used on input line 24.
 (pdftex.def)             Requested size: 103.50105pt x 99.26413pt.
 
 [1
@@ -196,64 +238,97 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout5 = `project.lof'.
 
  [1]
-Underfull \hbox (badness 10000) in paragraph at lines 48--55
+Underfull \hbox (badness 10000) in paragraph at lines 50--57
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--65
+Underfull \hbox (badness 10000) in paragraph at lines 61--68
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 68.
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--68
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 71.
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 71.
 
-Overfull \hbox (8.13953pt too wide) in paragraph at lines 68--69
+Overfull \hbox (8.13953pt too wide) in paragraph at lines 71--72
 []\OT1/cmr/m/n/10 analyze the clas-si-fi-ca-tion per-for-mance of the knn and s
 vm us-ing the grayscale
  []
 
 
-Overfull \hbox (8.13953pt too wide) in paragraph at lines 69--70
+Overfull \hbox (8.13953pt too wide) in paragraph at lines 72--73
 []\OT1/cmr/m/n/10 analyze the clas-si-fi-ca-tion per-for-mance of the knn and s
 vm us-ing the grayscale
  []
 
 [1]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 79.
+(Font)              <8> on input line 82.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 79.
- [2] [3] [4] (./project.aux) ) 
+(Font)              <6> on input line 82.
+ [2]
+<../cumulative_variance_graysalce.pdf, id=26, 597.23125pt x 844.15375pt>
+File: ../cumulative_variance_graysalce.pdf Graphic file (type pdf)
+<use ../cumulative_variance_graysalce.pdf>
+Package pdftex.def Info: ../cumulative_variance_graysalce.pdf  used on input li
+ne 125.
+(pdftex.def)             Requested size: 284.52618pt x 284.53537pt.
+ [3]
+<../cumulative_variance_grb.pdf, id=33, 597.23125pt x 844.15375pt>
+File: ../cumulative_variance_grb.pdf Graphic file (type pdf)
+<use ../cumulative_variance_grb.pdf>
+Package pdftex.def Info: ../cumulative_variance_grb.pdf  used on input line 131
+.
+(pdftex.def)             Requested size: 284.52618pt x 284.53537pt.
+ [4 <../cumulative_variance_graysalce.pdf>]
+<../knn_accuracy_grayscale.pdf, id=42, 597.23125pt x 844.15375pt>
+File: ../knn_accuracy_grayscale.pdf Graphic file (type pdf)
+<use ../knn_accuracy_grayscale.pdf>
+Package pdftex.def Info: ../knn_accuracy_grayscale.pdf  used on input line 141.
+
+(pdftex.def)             Requested size: 238.88826pt x 337.65552pt.
+<../knn_accuracy_rgb.pdf, id=43, 597.23125pt x 844.15375pt>
+File: ../knn_accuracy_rgb.pdf Graphic file (type pdf)
+<use ../knn_accuracy_rgb.pdf>
+Package pdftex.def Info: ../knn_accuracy_rgb.pdf  used on input line 144.
+(pdftex.def)             Requested size: 238.88826pt x 337.65552pt.
+ [5 <../cumulative_variance_grb.pdf>] [6 <../knn_accuracy_grayscale.pdf> <../kn
+n_accuracy_rgb.pdf>]
+(./project.aux) ) 
 Here is how much of TeX's memory you used:
- 2079 strings out of 492982
- 29755 string characters out of 6134895
- 89215 words of memory out of 5000000
- 5623 multiletter control sequences out of 15000+600000
+ 3354 strings out of 492982
+ 52897 string characters out of 6134895
+ 107030 words of memory out of 5000000
+ 6879 multiletter control sequences out of 15000+600000
  7628 words of font info for 27 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,8n,25p,647b,253s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmti10.pfb>
-Output written on project.pdf (6 pages, 254080 bytes).
+ 44i,8n,42p,647b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ti10.pfb>
+Output written on project.pdf (8 pages, 300499 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

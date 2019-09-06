@@ -1,9 +1,11 @@
 \documentclass{article}
 
+\usepackage{subfig}
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{changepage}
 
 
 \begin{document}
@@ -57,6 +59,7 @@ the Appendix, containing all the R code \\
 
 
 The present project addresses the fruit and vegetable multiclass classification problem. Its objective of this project is to classify a variety of fruits and vegetables whose images are stored in a recently released dataset.\\
+\\
 Fruit and vegetable classification is a challenging task, there are two different kind of problems that must be overcome: vegetables and fruits within the same class can differ in shape and colour due to maturity and growth. On the countrary, vegetables and fruits in different classes, such as red apples or grapes, may be very similar both in textures and in colours. 
 Fruit and vegetable classification has a key role in many industries: it can be exploited to make agriculter more autonomous than ever before in history, but it can also be applied to all stages of the supply chain to assess the quality of the products from the producer to the consumer. 
 The ability of harvesting robots can be enhanced by enforcing fruit and vegetables recognition, indeed it may allow them to recognize not only the type of fruit or vegetable but also its maturity or wheter it is rotten. Moreover, autonomous classification provides more consistent quality assessment since it does not depend of the opinion of different workers.
@@ -102,7 +105,7 @@ To obtain the final grayscale representation  $y$ of a pixel $x$, the following 
 The procedure described in the following is the same for grayscale features and rgb features.
 The first step in the analysis was the data extraction and the creation of the data matrix and the vector of the labels. 
 The images have 100x100 pixels, but to limit the compuational complexity of the following algorithms i decided to resize them to 50x50 pixels.
-The feature vectoar are extracted using the functions of the library \textit{imager}. Onche the data vectors are extracted , a data matrix is created. Each row of the matrix contains the linearized representation of the image. A separate vector of labels was create, one for each image. 
+The feature vector are extracted using the functions of the library \textit{imager}. Onche the data vectors are extracted , a data matrix is created. Each row of the matrix contains the linearized representation of the image. A separate vector of labels was create, one for each image. 
 
 \begin{algorithm}[H] 
    \caption{Schema of the analysis}
@@ -115,6 +118,34 @@ The feature vectoar are extracted using the functions of the library \textit{ima
     \State CNN
 \end{algorithmic}
 \end{algorithm}
+
+\noindent Most learning algorithms are exponentially slow in the number of the feature or at least significantly slow down as the number of feature increases. Furthermore, it is reasonable to belive that many of the pixels are useless since they are just part of the background. As a result i choose to reduce the dimensionality of the data using the Principal component analysis (PCA).  It is one of the most common technique to reduce the dimensionality of the data since it is very efficient. Once all the principal componenet are computed we can choose a subset of the that cna explain most of the variance.
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm,height=10cm]{../cumulative_variance_graysalce.pdf} 
+\caption{Cumulative variance explainde by the components regarding the grayscale features}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm,height=10cm]{../cumulative_variance_grb.pdf} 
+\caption{Cumulative variance explainde by the components regarding the rgb features}
+\end{figure}
+\noindent As the plost above show, in both cases, using 150 is enough to explain all the variance in the data. To compare and analyze the performance of the learning algorithms i choose to use the following set of principal components $\{3,10,50,100,150\}$
+
+
+\begin{figure}[H]  
+  \begin{adjustwidth}{-4cm}{-4cm}
+     \subfloat{%
+       \includegraphics[scale=0.4]{../knn_accuracy_grayscale.pdf}
+     }
+     \subfloat{%
+    \includegraphics[scale=0.4]{../knn_accuracy_rgb.pdf}  
+     }
+     \centering
+     \caption{Training performances knn}
+      \end{adjustwidth}
+   \end{figure}
 
 \begin{thebibliography}{9}
 
