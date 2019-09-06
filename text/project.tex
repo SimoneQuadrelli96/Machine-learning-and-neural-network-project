@@ -75,6 +75,20 @@ As the authors explain, the dataset was produced as follows: fruits and vegetabl
 It is also worth noticing that the dataset was already splitted in train and test set, therefore no further splitting was done.\\
 Fruits and vegetables have several distinct visual characteristics that can be extracted from the images. Colour, shape, size and texture are the most commonly used features in image classification. Colours features are not difficult to extract and seem to suit the domain \cite{review}. Grayscale values and rgb values features were extracted. 
 
+Colour spaces are a specific organization of colors the allows to  reproduce the representation of colours. There are two colour spaces used in this project: grayscale and the rgb.
+\subsection{RGB colour space}
+The RGB colour model is an additive color model. Red, green and blue are added together to reproduce an array of colors. A color in the RGB colour model is described by indicating how much of the red, green, and blue is included. The color is expressed as an RGB triplet (r,g,b). Each component can vary from 0 to 255, since each channel is represented by a byte.
+
+\subsection{Grayscale colour space}
+The dataset contains just rgb images, therefore it is necessary to extraxt a grayscale representation of the pixels to be used as features.
+In grayscale, each pixel is a byte therefore the possible values ranges between 0 and 255. The conversion algorithm used by the library is Luma algorithm. Each rgb channel $R, G, B$ are passed to a function $\Gamma(x)$ to obtain its transformation $R', G', B'$ that applies the following transformation
+\begin{equation}
+ x = '\Gamma(x) = Ax^{\gamma}
+\end{equation}
+where x in the pixel intensity, $A$ is a scalar, whose values is often 1 ang $\gamma$ is usually = $\frac{1}{2.2}$
+To abtain the final grayscale representation the following linear transformation is applied $0.21 R' + 0.71 G' + 0.07  B'$.  \cite{grayscale conversion}
+
+ 
 
 \begin{thebibliography}{9}
 
@@ -83,8 +97,11 @@ Fruits and vegetables have several distinct visual characteristics that can be e
 
 \bibitem{review}
 \textit{Khurram Hameed, Douglas Chai, Alexander Rassau, A comprehensive review of fruit and vegetable classification techniques. Image and Vision Computing 80 (2018) 22-44.}
-\end{thebibliography}
- 
+
+\bibitem{grayscaleconversion}
+\textit{Samuel Macedo, Givanio Melo, Judith Kelner, A comparative study of grayscale conversion techniques applied to SIFT descriptors, SBC Journal on Interactive Systems, volume 6, number 2, 2015.}
+
+\end{thebibliography} 
 \end{document}
 
 

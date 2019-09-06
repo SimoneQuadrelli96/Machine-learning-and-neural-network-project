@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  4 SEP 2019 15:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  6 SEP 2019 11:39
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -149,7 +149,12 @@ Package pdftex.def Info: tesiSCIENZE_TECNOLOGIE.jpg  used on input line 20.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./tesiSCIENZE_TECNOLOGIE.j
-pg>] (./project.toc)
+pg>] (./project.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+)
 \tf@toc=\write3
 \openout3 = `project.toc'.
 
@@ -177,31 +182,39 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 66.
- [1]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 73.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 73.
- [2] (./project.aux) ) 
+ [1] [2]
+
+LaTeX Warning: Citation `grayscale conversion' on page 3 undefined on input lin
+e 89.
+
+[3] (./project.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1517 strings out of 492982
- 21718 string characters out of 6134895
- 79742 words of memory out of 5000000
- 5081 multiletter control sequences out of 15000+600000
- 5498 words of font info for 20 fonts, out of 8000000 for 9000
+ 1520 strings out of 492982
+ 21776 string characters out of 6134895
+ 79745 words of memory out of 5000000
+ 5084 multiletter control sequences out of 15000+600000
+ 5805 words of font info for 21 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,5n,25p,639b,230s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on project.pdf (4 pages, 194847 bytes).
+ 41i,5n,25p,633b,230s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti10.pfb>
+Output written on project.pdf (5 pages, 231250 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
- 31 compressed objects within 1 object stream
+ 65 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
