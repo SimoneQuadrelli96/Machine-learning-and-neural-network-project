@@ -1,5 +1,7 @@
 \contentsline {section}{\numberline {1}Introduction}{1}
 \contentsline {section}{\numberline {2}Dataset and Features}{2}
 \contentsline {subsection}{\numberline {2.1}RGB colour space}{2}
-\contentsline {subsection}{\numberline {2.2}Grayscale colour space}{3}
+\contentsline {subsection}{\numberline {2.2}Grayscale colour space}{2}
 \contentsline {section}{\numberline {3}Data analysis}{3}
+\contentsline {subsection}{\numberline {3.1}Baseline and knn}{4}
+\contentsline {subsection}{\numberline {3.2}SVM}{6}

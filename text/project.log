@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  6 SEP 2019 15:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  7 SEP 2019 11:38
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -238,7 +238,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout5 = `project.lof'.
 
  [1]
-Underfull \hbox (badness 10000) in paragraph at lines 50--57
+Underfull \hbox (badness 10000) in paragraph at lines 53--60
 
  []
 
@@ -280,55 +280,93 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 File: ../cumulative_variance_graysalce.pdf Graphic file (type pdf)
 <use ../cumulative_variance_graysalce.pdf>
 Package pdftex.def Info: ../cumulative_variance_graysalce.pdf  used on input li
-ne 125.
-(pdftex.def)             Requested size: 284.52618pt x 284.53537pt.
- [3]
-<../cumulative_variance_grb.pdf, id=33, 597.23125pt x 844.15375pt>
+ne 127.
+(pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
+<../cumulative_variance_grb.pdf, id=27, 597.23125pt x 844.15375pt>
 File: ../cumulative_variance_grb.pdf Graphic file (type pdf)
 <use ../cumulative_variance_grb.pdf>
-Package pdftex.def Info: ../cumulative_variance_grb.pdf  used on input line 131
+Package pdftex.def Info: ../cumulative_variance_grb.pdf  used on input line 130
 .
-(pdftex.def)             Requested size: 284.52618pt x 284.53537pt.
- [4 <../cumulative_variance_graysalce.pdf>]
-<../knn_accuracy_grayscale.pdf, id=42, 597.23125pt x 844.15375pt>
+(pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
+
+ []
+
+[4 <../cumulative_variance_graysalce.pdf> <../cumulative_variance_grb.pdf>]
+<../knn_accuracy_grayscale.pdf, id=47, 597.23125pt x 844.15375pt>
 File: ../knn_accuracy_grayscale.pdf Graphic file (type pdf)
 <use ../knn_accuracy_grayscale.pdf>
-Package pdftex.def Info: ../knn_accuracy_grayscale.pdf  used on input line 141.
+Package pdftex.def Info: ../knn_accuracy_grayscale.pdf  used on input line 148.
 
-(pdftex.def)             Requested size: 238.88826pt x 337.65552pt.
-<../knn_accuracy_rgb.pdf, id=43, 597.23125pt x 844.15375pt>
+(pdftex.def)             Requested size: 209.03406pt x 295.45824pt.
+<../knn_accuracy_rgb.pdf, id=48, 597.23125pt x 844.15375pt>
 File: ../knn_accuracy_rgb.pdf Graphic file (type pdf)
 <use ../knn_accuracy_rgb.pdf>
-Package pdftex.def Info: ../knn_accuracy_rgb.pdf  used on input line 144.
-(pdftex.def)             Requested size: 238.88826pt x 337.65552pt.
- [5 <../cumulative_variance_grb.pdf>] [6 <../knn_accuracy_grayscale.pdf> <../kn
-n_accuracy_rgb.pdf>]
-(./project.aux) ) 
+Package pdftex.def Info: ../knn_accuracy_rgb.pdf  used on input line 151.
+(pdftex.def)             Requested size: 209.03406pt x 295.45824pt.
+<../knn_time_grayscale.pdf, id=49, 597.23125pt x 844.15375pt>
+File: ../knn_time_grayscale.pdf Graphic file (type pdf)
+<use ../knn_time_grayscale.pdf>
+Package pdftex.def Info: ../knn_time_grayscale.pdf  used on input line 165.
+(pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
+<../knn_time_rgb.pdf, id=50, 597.23125pt x 844.15375pt>
+File: ../knn_time_rgb.pdf Graphic file (type pdf)
+<use ../knn_time_rgb.pdf>
+Package pdftex.def Info: ../knn_time_rgb.pdf  used on input line 168.
+(pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
+
+[5 <../knn_accuracy_grayscale.pdf> <../knn_accuracy_rgb.pdf>]
+<../svm_accuracy_grayscale.pdf, id=67, 597.23125pt x 844.15375pt>
+File: ../svm_accuracy_grayscale.pdf Graphic file (type pdf)
+<use ../svm_accuracy_grayscale.pdf>
+Package pdftex.def Info: ../svm_accuracy_grayscale.pdf  used on input line 180.
+
+(pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
+<../svm_accuracy_rgb.pdf, id=68, 597.23125pt x 844.15375pt>
+File: ../svm_accuracy_rgb.pdf Graphic file (type pdf)
+<use ../svm_accuracy_rgb.pdf>
+Package pdftex.def Info: ../svm_accuracy_rgb.pdf  used on input line 183.
+(pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
+ [6 <../knn_time_grayscale.pdf> <../knn_time_rgb.pdf>]
+<../svm_time_grayscale.pdf, id=84, 597.23125pt x 844.15375pt>
+File: ../svm_time_grayscale.pdf Graphic file (type pdf)
+<use ../svm_time_grayscale.pdf>
+Package pdftex.def Info: ../svm_time_grayscale.pdf  used on input line 194.
+(pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
+<../svm_time_rgb.pdf, id=85, 597.23125pt x 844.15375pt>
+File: ../svm_time_rgb.pdf Graphic file (type pdf)
+<use ../svm_time_rgb.pdf>
+Package pdftex.def Info: ../svm_time_rgb.pdf  used on input line 197.
+(pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
+ [7 <../svm_accuracy_grayscale.pdf> <../svm_accuracy_rgb.pdf>] [8 <../svm_time_
+grayscale.pdf> <../svm_time_rgb.pdf>]
+[9] (./project.aux) ) 
 Here is how much of TeX's memory you used:
- 3354 strings out of 492982
- 52897 string characters out of 6134895
- 107030 words of memory out of 5000000
- 6879 multiletter control sequences out of 15000+600000
+ 3385 strings out of 492982
+ 53849 string characters out of 6134895
+ 107033 words of memory out of 5000000
+ 6904 multiletter control sequences out of 15000+600000
  7628 words of font info for 27 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,8n,42p,647b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti10.pfb>
-Output written on project.pdf (8 pages, 300499 bytes).
+ 44i,8n,42p,647b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmti10.pfb>
+Output written on project.pdf (11 pages, 334448 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
+ 162 PDF objects out of 1000 (max. 8388607)
+ 113 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

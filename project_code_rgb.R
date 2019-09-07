@@ -160,7 +160,6 @@ res_svm
 
 plot(res_svm, type = c("b"),pch=1 , xlab = "Features", ylab="Precision", main="SVM ACCURACY", xaxt = "n")
 axis(1, at=1:length(features), labels=features)
-legend("right", legend = features, col=1:length(features), pch=1, title="Features")
 
 plot(time_svm, type = c("b"),pch=1 , xlab = "Features", ylab="Execution time (s)", main="SVM EXECUTION TIME", xaxt = "n")
 axis(1, at=1:length(features), labels=features)

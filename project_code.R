@@ -132,12 +132,12 @@ for (n_f in features){
 
 time_svm
 #[1]  9.517319  7.648561 25.033115 58.825680 95.674626
-res_svm
+res_svm 
 #[1] 0.6857456 0.8225877 0.8407895 0.8245614 0.8245614
 
 plot(res_svm, type = c("b"),pch=1 , xlab = "Features", ylab="Precision", main="SVM ACCURACY", xaxt = "n")
 axis(1, at=1:length(features), labels=features)
-legend("right", legend = features, col=1:length(features), pch=1, title="Features")
+
 
 plot(time_svm, type = c("b"),pch=1 , xlab = "Features", ylab="Execution time (s)", main="SVM EXECUTION TIME", xaxt = "n")
 axis(1, at=1:length(features), labels=features)

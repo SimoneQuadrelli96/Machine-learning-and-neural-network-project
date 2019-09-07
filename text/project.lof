@@ -1,3 +1,5 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Cumulative variance explainde by the components regarding the grayscale features\relax }}{4}
-\contentsline {figure}{\numberline {2}{\ignorespaces Cumulative variance explainde by the components regarding the rgb features\relax }}{5}
-\contentsline {figure}{\numberline {3}{\ignorespaces Training performances knn\relax }}{6}
+\contentsline {figure}{\numberline {1}{\ignorespaces Cumulative variance\relax }}{4}
+\contentsline {figure}{\numberline {2}{\ignorespaces Test performance knn\relax }}{5}
+\contentsline {figure}{\numberline {3}{\ignorespaces Execution time knn\relax }}{6}
+\contentsline {figure}{\numberline {4}{\ignorespaces Performance svm\relax }}{7}
+\contentsline {figure}{\numberline {5}{\ignorespaces Execution time svm\relax }}{8}
