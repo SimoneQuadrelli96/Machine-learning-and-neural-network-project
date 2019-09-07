@@ -48,6 +48,7 @@
 
 \pagenumbering{arabic}
 
+\section*{Abstract}
 
 \section{Introduction}
 short abstract: what are your going to present in the report \\
@@ -120,6 +121,7 @@ The feature vector are extracted using the functions of the library \textit{imag
 \end{algorithm}
 
 \noindent Most learning algorithms are exponentially slow in the number of the feature or at least significantly slow down as the number of feature increases. Furthermore, it is reasonable to belive that many of the pixels are useless since they are just part of the background. As a result i choose to reduce the dimensionality of the data using the Principal component analysis (PCA).  It is one of the most common technique to reduce the dimensionality of the data since it is very efficient. Once all the principal componenet are computed we can choose a subset of the that cna explain most of the variance.
+INSERISCI I TEMPI DI ESECUZIONE DELLA PCA
 \begin{figure}[H]  
   \begin{adjustwidth}{-4cm}{-4cm}
      \subfloat{%
@@ -134,6 +136,9 @@ The feature vector are extracted using the functions of the library \textit{imag
    \end{figure}
 
 \noindent As the plost above show, in both cases, using 150 is enough to explain all the variance in the data. However, having fixed the number of compunents, rgb components explain less variance than the grayscale components. To compare and analyze the performance of the learning algorithms i choose to use the following set of principal components $\{3,10,50,100,150\}$.  \\
+\subsection{Metrics}
+The metrics used
+
 \subsection{Baseline and knn}
 The rationale behind this choice is to find the number of components that give the best result having at the same time a fast execution time. The k-nearest neighbours (knn) algorithm because it is known to be one of the most efficient classification algorithm even if it is very simple and dated \cite{knnresults}. Moreover, in image classification seem to perform quite as well as more sophisticated algorithms such as support vector machines. Bearing in mind  that, it seems to me the best choice to define a baseline. \\
 As can be seen from the plots below there is no remarkable diffenrence in performace if the number of features considered in 10 or more. On the other hand, when only three features are uses the algorithms achieves lower performances. This difference is even more sharp when rgb features are involved, indeed its accuracy rate is about 0.10\% below the other accuracies. The best number of features to select is 50, since with all the possible value of k knn performs best with 50 features.\\
@@ -170,9 +175,14 @@ If one was to use just one model, I would recommend to choose a 1-nn with 50 fea
      \caption{Execution time knn}
       \end{adjustwidth}
    \end{figure}
+   
+\noindent Overall, the baseline is very promising but hard to improve. The knn algorithm is suitable to classify images.
 
 \subsection{SVM}
-Support vector machines are often used in image classification. They are classification algorithm that provide 
+Support vector machines are often used in image classification. Thier most basic implamentation is based on a linear classifier but the dataset seems to be hardly linearly separable. Therefore the gaussia kernel was applied to allow generic curves to be used. The kernel that was used, is the gaussian kernel. The gaussian kernel can be seen as a linear combiantion of polynomial kernels, therefore it can be seen as the most genral kernel implemented in the library. The kernel allow for more accurate predictions but slows a little bit down the algorithm execution time.\\
+The plot on the left show the accuracy of the svm on the grayscale features. The model reaches a lower accuracy with respect to the accuracy of the knn algorithm. It is less precise by 0.02/0.03. On the countrary svm using rgb features performs as well as the knn algorithm.\\
+In both cases the best accuracy, as before, is reached when the number of features is 50.
+
 \begin{figure}[H]  
   \begin{adjustwidth}{-4cm}{-4cm}
      \subfloat{%
@@ -182,10 +192,11 @@ Support vector machines are often used in image classification. They are classif
     \includegraphics[scale=0.3]{../svm_accuracy_rgb.pdf}  
      }
      \centering
-     \caption{Performance svm}
+     \caption{Test accuracy svm}
       \end{adjustwidth}
    \end{figure}
-   
+
+\noindent The execution time of the svm is way higher than the execution time of the knn, however it remains a reasonable execution time.
    
 \begin{figure}[H]  
   \begin{adjustwidth}{-4cm}{-4cm}
@@ -199,8 +210,28 @@ Support vector machines are often used in image classification. They are classif
      \caption{Execution time svm}
       \end{adjustwidth}
    \end{figure}
+\noindent Overall, the svm does not improve the result defined in the baseline that remains still very significant. Only a negliglible result is reached when using the rgb features. \\
 
 
+\subsection{CNN}
+\begin{figure}[H]  
+  \begin{adjustwidth}{-4cm}{-4cm}
+     \subfloat{%
+      \includegraphics[scale=0.3]{../Cnn_traning_plot.png} 
+     }
+     \subfloat{%
+ \includegraphics[scale=0.3]{../cnn_rgb.png} 
+     }
+     \centering
+     \caption{Execution time svm}
+      \end{adjustwidth}
+   \end{figure}
+
+\section{Conclusions}
+RISULTATI MIGLIORI
+CONFRONTO CON LA LETTERATURA
+
+\section{Appendix: Code}
 \newpage
 \begin{thebibliography}{9}
 \bibitem{dataset}

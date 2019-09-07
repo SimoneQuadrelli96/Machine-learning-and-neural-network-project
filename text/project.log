@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  7 SEP 2019 11:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  7 SEP 2019 14:17
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -238,58 +238,58 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout5 = `project.lof'.
 
  [1]
-Underfull \hbox (badness 10000) in paragraph at lines 53--60
+Underfull \hbox (badness 10000) in paragraph at lines 54--61
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--68
+Underfull \hbox (badness 10000) in paragraph at lines 62--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--68
+Underfull \hbox (badness 10000) in paragraph at lines 62--69
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 71.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 72.
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 71.
-
-Overfull \hbox (8.13953pt too wide) in paragraph at lines 71--72
-[]\OT1/cmr/m/n/10 analyze the clas-si-fi-ca-tion per-for-mance of the knn and s
-vm us-ing the grayscale
- []
-
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
 
 Overfull \hbox (8.13953pt too wide) in paragraph at lines 72--73
 []\OT1/cmr/m/n/10 analyze the clas-si-fi-ca-tion per-for-mance of the knn and s
 vm us-ing the grayscale
  []
 
+
+Overfull \hbox (8.13953pt too wide) in paragraph at lines 73--74
+[]\OT1/cmr/m/n/10 analyze the clas-si-fi-ca-tion per-for-mance of the knn and s
+vm us-ing the grayscale
+ []
+
 [1]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 82.
+(Font)              <8> on input line 83.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 82.
+(Font)              <6> on input line 83.
  [2]
 <../cumulative_variance_graysalce.pdf, id=26, 597.23125pt x 844.15375pt>
 File: ../cumulative_variance_graysalce.pdf Graphic file (type pdf)
 <use ../cumulative_variance_graysalce.pdf>
 Package pdftex.def Info: ../cumulative_variance_graysalce.pdf  used on input li
-ne 127.
+ne 129.
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
 <../cumulative_variance_grb.pdf, id=27, 597.23125pt x 844.15375pt>
 File: ../cumulative_variance_grb.pdf Graphic file (type pdf)
 <use ../cumulative_variance_grb.pdf>
-Package pdftex.def Info: ../cumulative_variance_grb.pdf  used on input line 130
+Package pdftex.def Info: ../cumulative_variance_grb.pdf  used on input line 132
 .
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
  [3]
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
@@ -297,76 +297,90 @@ Underfull \hbox (badness 10000) in paragraph at lines 136--137
 <../knn_accuracy_grayscale.pdf, id=47, 597.23125pt x 844.15375pt>
 File: ../knn_accuracy_grayscale.pdf Graphic file (type pdf)
 <use ../knn_accuracy_grayscale.pdf>
-Package pdftex.def Info: ../knn_accuracy_grayscale.pdf  used on input line 148.
+Package pdftex.def Info: ../knn_accuracy_grayscale.pdf  used on input line 153.
 
 (pdftex.def)             Requested size: 209.03406pt x 295.45824pt.
 <../knn_accuracy_rgb.pdf, id=48, 597.23125pt x 844.15375pt>
 File: ../knn_accuracy_rgb.pdf Graphic file (type pdf)
 <use ../knn_accuracy_rgb.pdf>
-Package pdftex.def Info: ../knn_accuracy_rgb.pdf  used on input line 151.
+Package pdftex.def Info: ../knn_accuracy_rgb.pdf  used on input line 156.
 (pdftex.def)             Requested size: 209.03406pt x 295.45824pt.
-<../knn_time_grayscale.pdf, id=49, 597.23125pt x 844.15375pt>
-File: ../knn_time_grayscale.pdf Graphic file (type pdf)
-<use ../knn_time_grayscale.pdf>
-Package pdftex.def Info: ../knn_time_grayscale.pdf  used on input line 165.
-(pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
-<../knn_time_rgb.pdf, id=50, 597.23125pt x 844.15375pt>
-File: ../knn_time_rgb.pdf Graphic file (type pdf)
-<use ../knn_time_rgb.pdf>
-Package pdftex.def Info: ../knn_time_rgb.pdf  used on input line 168.
-(pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
 
 [5 <../knn_accuracy_grayscale.pdf> <../knn_accuracy_rgb.pdf>]
-<../svm_accuracy_grayscale.pdf, id=67, 597.23125pt x 844.15375pt>
-File: ../svm_accuracy_grayscale.pdf Graphic file (type pdf)
-<use ../svm_accuracy_grayscale.pdf>
-Package pdftex.def Info: ../svm_accuracy_grayscale.pdf  used on input line 180.
-
+<../knn_time_grayscale.pdf, id=65, 597.23125pt x 844.15375pt>
+File: ../knn_time_grayscale.pdf Graphic file (type pdf)
+<use ../knn_time_grayscale.pdf>
+Package pdftex.def Info: ../knn_time_grayscale.pdf  used on input line 170.
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
-<../svm_accuracy_rgb.pdf, id=68, 597.23125pt x 844.15375pt>
-File: ../svm_accuracy_rgb.pdf Graphic file (type pdf)
-<use ../svm_accuracy_rgb.pdf>
-Package pdftex.def Info: ../svm_accuracy_rgb.pdf  used on input line 183.
+<../knn_time_rgb.pdf, id=66, 597.23125pt x 844.15375pt>
+File: ../knn_time_rgb.pdf Graphic file (type pdf)
+<use ../knn_time_rgb.pdf>
+Package pdftex.def Info: ../knn_time_rgb.pdf  used on input line 173.
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
  [6 <../knn_time_grayscale.pdf> <../knn_time_rgb.pdf>]
+<../svm_accuracy_grayscale.pdf, id=82, 597.23125pt x 844.15375pt>
+File: ../svm_accuracy_grayscale.pdf Graphic file (type pdf)
+<use ../svm_accuracy_grayscale.pdf>
+Package pdftex.def Info: ../svm_accuracy_grayscale.pdf  used on input line 190.
+
+(pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
+<../svm_accuracy_rgb.pdf, id=83, 597.23125pt x 844.15375pt>
+File: ../svm_accuracy_rgb.pdf Graphic file (type pdf)
+<use ../svm_accuracy_rgb.pdf>
+Package pdftex.def Info: ../svm_accuracy_rgb.pdf  used on input line 193.
+(pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
 <../svm_time_grayscale.pdf, id=84, 597.23125pt x 844.15375pt>
 File: ../svm_time_grayscale.pdf Graphic file (type pdf)
 <use ../svm_time_grayscale.pdf>
-Package pdftex.def Info: ../svm_time_grayscale.pdf  used on input line 194.
+Package pdftex.def Info: ../svm_time_grayscale.pdf  used on input line 205.
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
 <../svm_time_rgb.pdf, id=85, 597.23125pt x 844.15375pt>
 File: ../svm_time_rgb.pdf Graphic file (type pdf)
 <use ../svm_time_rgb.pdf>
-Package pdftex.def Info: ../svm_time_rgb.pdf  used on input line 197.
+Package pdftex.def Info: ../svm_time_rgb.pdf  used on input line 208.
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
- [7 <../svm_accuracy_grayscale.pdf> <../svm_accuracy_rgb.pdf>] [8 <../svm_time_
-grayscale.pdf> <../svm_time_rgb.pdf>]
-[9] (./project.aux) ) 
+ [7 <../svm_accuracy_grayscale.pdf> <../svm_accuracy_rgb.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
+
+ []
+
+<../Cnn_traning_plot.png, id=101, 637.38126pt x 556.0775pt>
+File: ../Cnn_traning_plot.png Graphic file (type png)
+<use ../Cnn_traning_plot.png>
+Package pdftex.def Info: ../Cnn_traning_plot.png  used on input line 221.
+(pdftex.def)             Requested size: 191.21585pt x 166.82454pt.
+<../cnn_rgb.png, id=103, 478.03593pt x 417.05812pt>
+File: ../cnn_rgb.png Graphic file (type png)
+<use ../cnn_rgb.png>
+Package pdftex.def Info: ../cnn_rgb.png  used on input line 224.
+(pdftex.def)             Requested size: 143.41188pt x 125.1184pt.
+[8 <../svm_time_grayscale.pdf> <../svm_time_rgb.pdf>] [9 <../Cnn_traning_plot.p
+ng> <../cnn_rgb.png (PNG copy)>] [10] (./project.aux) ) 
 Here is how much of TeX's memory you used:
- 3385 strings out of 492982
- 53849 string characters out of 6134895
+ 3396 strings out of 492982
+ 54070 string characters out of 6134895
  107033 words of memory out of 5000000
- 6904 multiletter control sequences out of 15000+600000
+ 6912 multiletter control sequences out of 15000+600000
  7628 words of font info for 27 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,8n,42p,647b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-bx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmti10.pfb>
-Output written on project.pdf (11 pages, 334448 bytes).
+ 44i,8n,42p,647b,364s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on project.pdf (12 pages, 1416615 bytes).
 PDF statistics:
- 162 PDF objects out of 1000 (max. 8388607)
- 113 compressed objects within 2 object streams
+ 169 PDF objects out of 1000 (max. 8388607)
+ 116 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
