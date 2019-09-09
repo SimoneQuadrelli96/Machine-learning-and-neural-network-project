@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {3}Data analysis}{3}
 \contentsline {subsection}{\numberline {3.1}Feature extraction and dimensionality reduction}{3}
 \contentsline {subsection}{\numberline {3.2}Baseline and knn}{5}
-\contentsline {subsection}{\numberline {3.3}SVM}{7}
-\contentsline {subsection}{\numberline {3.4}CNN}{10}
+\contentsline {subsection}{\numberline {3.3}Support Vector Machines}{7}
+\contentsline {subsection}{\numberline {3.4}Convolutional neural network}{9}
 \contentsline {section}{\numberline {4}Conclusions}{10}
 \contentsline {section}{\numberline {5}Appendix: Code}{10}

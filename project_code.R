@@ -161,10 +161,21 @@ x_train<-array_reshape(training_features_matrix,c(nrow(training_features_matrix)
 x_test<-array_reshape(test_features_matrix,c(nrow(test_features_matrix),dim,dim,1))
 
 model <- keras_model_sequential() %>%
-  layer_conv_2d(filters = 32, kernel_size = c(3, 3), activation = "relu",
+  layer_conv_2d(filters = 16, kernel_size = c(3, 3), activation = "relu",
                 input_shape = c(50, 50, 1)) %>%
   layer_max_pooling_2d(pool_size = c(4,4)) %>%
-  layer_conv_2d(filters = 64, kernel_size = c(3, 3), activation = "relu") %>%
+  layer_conv_2d(filters = 64, kernel_size = c(2, 2), activation = "relu") %>%
+  layer_flatten() %>%
+  layer_dropout(rate=0.5) %>%
+  layer_dense(units = 300, activation = "relu") %>%
+  layer_dense(units = 200, activation = "tanh") %>%
+  layer_dense(units = length(fruits), activation = "softmax")
+
+model <- keras_model_sequential() %>%
+  layer_conv_2d(filters = 16, kernel_size = c(3, 3), activation = "relu",
+                input_shape = c(50, 50, 1)) %>%
+  layer_max_pooling_2d(pool_size = c(4,4)) %>%
+  layer_conv_2d(filters = 32, kernel_size = c(3, 3), activation = "relu") %>%
   layer_max_pooling_2d(pool_size = c(4, 4)) %>%
   #layer_conv_2d(filters = 128, kernel_size = c(2, 2), activation = "tanh") %>%
   #layer_max_pooling_2d(pool_size = c(4, 4)) %>%

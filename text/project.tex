@@ -189,12 +189,12 @@ Overall, the best model is 1-nn with 50 features.
    
 \noindent Overall, the baseline is very promising but hard to improve. The knn algorithm seems to be very suitable to classify images.
 
-\subsection{SVM}
-Support vector machines are often used in image classification. Thier most basic implamentation is based on a linear classifier but the dataset seems to be hardly linearly separable. Therefore the gaussia kernel was applied to allow generic curves to be used. The kernel that was used, is the gaussian kernel. The gaussian kernel can be seen as a linear combiantion of polynomial kernels, therefore it can be seen as the most genral kernel implemented in the library. The kernel allow for more accurate predictions but slows a little bit down the algorithm execution time.\\
-The plot on the left show the accuracy of the svm on the grayscale features. The model reaches a lower accuracy with respect to the accuracy of the knn algorithm. It is less precise by 0.02/0.03. On the countrary svm using rgb features performs as well as the knn algorithm.\\
+\subsection{Support Vector Machines}
+Support vector machines are often used in image classification, in thier simplest form they are just linear classifiers. However the dataset seems to be hardly linearly separable, therefore the gaussian kernel was applied to allow generic curves to be used. The gaussian kernel is a linear combination of polynomial kernels. The gaussian kernel allows for more accurate predictions but slows down the algorithm.\\
+The plot on the left of figure \ref{svmaccuracy} show the accuracy of the svm on the grayscale features. The svm reaches a lower accuracy with respect to the accuracy of the knn algorithm: it is less precise by 0.02/0.03. On the countrary, svm with rgb features performs as well as the knn algorithm.\\
 In both cases the best accuracy, as before, is reached when the number of features is 50.
 
-\begin{figure}[H]  
+\begin{figure}[H]   \label{svmaccuracy}
   \begin{adjustwidth}{-4cm}{-4cm}
      \subfloat{%
        \includegraphics[scale=0.3]{../svm_accuracy_grayscale.pdf}
@@ -224,11 +224,17 @@ In both cases the best accuracy, as before, is reached when the number of featur
 \noindent Overall, the svm does not improve the result defined in the baseline that remains still very significant. Only a negliglible result is reached when using the rgb features. \\
 
 
-\subsection{CNN}
+\subsection{Convolutional neural network}
+Convolutional neural netwoks (CNN) are deep learning neaural networks suitable for image classificatigeon. Deep learning algorithms are a class of machine learning algorithms that uses multiple layers to extract higher level features. The main reason to prefer deep learning techniques is that many layers with fewer weights are more flexible and precise in classification than neural networs with many weights and fewer layers.    
+Convolution layer
+The pooling layer just extract a reduced representation of the data computed in the convlutional layer. The dimension specified in the pooling layer defines a dimensions of the matrix of pixels to look at, once the matrix is identified it can be reduce by extracting the hight value in it. Notice that the mean or min value can also be extracted.
+After this process the image dimensions has been reduced. After the convolutional part of the net there exist some fully connected layer that returns a prediction from the featurtes extracted from the convolutional section. The output layer has one neuron for each possible class and the class having the highest probability will be chose as a prediction.
+The following images represent the training accuracy of the cnn used to classify the data. The training accuracy reach as high as 0.99 while the test accuracy is a bit lower.
+THe test accuracy reached when using grayscale features is 0.90, while the test accuracy when using rgb features is 0.94.
 \begin{figure}[H]  
   \begin{adjustwidth}{-4cm}{-4cm}
      \subfloat{%
-      \includegraphics[scale=0.3]{../Cnn_traning_plot.png} 
+      \includegraphics[scale=0.3]{../cnn_grayscale.png} 
      }
      \subfloat{%
  \includegraphics[scale=0.3]{../cnn_rgb.png} 
@@ -237,11 +243,13 @@ In both cases the best accuracy, as before, is reached when the number of featur
      \caption{Execution time svm}
       \end{adjustwidth}
    \end{figure}
-
+\noindent The training time of both the nets is about 1 minute.
+The CNN seem to be the best model to use to classify images.
 \section{Conclusions}
 RISULTATI MIGLIORI
+CONFRONTO TRA ALGORITMI
 CONFRONTO CON LA LETTERATURA
-
+RIASSUNTO DEI PUNTI FOCALI RAGGIUNTI
 \section{Appendix: Code}
 \newpage
 \begin{thebibliography}{9}
