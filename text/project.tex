@@ -141,24 +141,22 @@ When using the grayscale features the execution time required to compute the PCA
       \end{adjustwidth}
    \end{figure}
 
-\noindent As figure \ref{variance} show, in both cases, using 150 is enough to explain all the variance in the data. However, having fixed the number of compunents, rgb components explain less variance than the grayscale components. To compare and analyze the performance of the learning algorithms the following set of principal components $\{3,10,50,100,150\}$ are used.  \\
-\subsection{Metrics}
-To aveluate the performance of an algorithm is necessary to choose a metric. The metric choosein is accuracy that can be computed as follows:
-
+\noindent As figure \ref{variance} show, in both cases, using 150 is enough to explain all the variance in the data. However, having fixed the number of compunents, rgb components explain less variance than the grayscale components. To compare and analyze the performance of the learning algorithms the following set of principal components $\{3,10,50,100,150\}$ are used. The rationale behind this choice is to select the number of components that should give the best result having at the same time a fast execution time. \\
+ 
+\subsection{Baseline and knn}
+The k-nearest neighbours (knn) algorithm seems to be an appropriate choice to define a baseline because it is known to be one of the most efficient classification algorithm, even if it is very simple. Indeed, the knn classifies a test point with the labels of the closest training point. Moreover, in image classification it seems to perform quite as well as more sophisticated algorithms such as support vector machines. \cite{knnresults} \\
+To evaluate the performace of the knn and the other algorithms, the most natural choice is the accuracy, defined as:
 \begin{equation}
 \text{accuracy}  = \frac{\text{Number of correct predictions}}{ \text{Total number of predictions}}
 \end{equation}
- 
+\noindent The number of neighbours (k) chosen to construct the baseline are: $1,3,7,9,11$.
+As can be seen from figure \ref{knnaccuracy}, there is no remarkable diffenrence in performace if the number of features exploited is 10 or more. On the other hand, when only three features are used the algorithm achieves lower performances. This difference is even more sharp when rgb features are involved \footnote{The figure on the left always refers to the result obtained using the grayscale features. The figure on the right refers to the result obtained using the rgb features.}, indeed the accuracy lies about 0.10 below the other accuracy lines.\\
+The best number of features to select is 50, since with all the possible value of k knn performs best with 50 features.\\
+If we limit our analysis, considering just the result of knn with at least 10 features 1-nn has the very best results, even if up to 7 neighbours there is no significant difference in performance.
+Overall, knn reaches a very significant accuracy: the accuracy level  when considering rgb features reach up to 0.91, while the accuracy level reached using grayscale features is about 0.82. As expected the rgb features are more reliable and are associated with better results.\\
+Overall, the best model is 1-nn with 50 features.
 
-
-\subsection{Baseline and knn}
-The rationale behind this choice is to find the number of components that give the best result having at the same time a fast execution time. The k-nearest neighbours (knn) algorithm because it is known to be one of the most efficient classification algorithm even if it is very simple and dated \cite{knnresults}. Moreover, in image classification seem to perform quite as well as more sophisticated algorithms such as support vector machines. Bearing in mind  that, it seems to me the best choice to define a baseline. \\
-As can be seen from the plots below there is no remarkable diffenrence in performace if the number of features considered in 10 or more. On the other hand, when only three features are uses the algorithms achieves lower performances. This difference is even more sharp when rgb features are involved, indeed its accuracy rate is about 0.10\% below the other accuracies. The best number of features to select is 50, since with all the possible value of k knn performs best with 50 features.\\
-If we limit our analysis considering just the result of knn with at least 10 features 1-nn has the very best results, even if up to  4 neighbours there is no significant difference in performances.
-Overall, knn reaches a very significant accuracy. The accuracy level  when considering rgb features reach up to 0.91.
-
-
-\begin{figure}[H]  
+\begin{figure}[H]   \label{knnaccuracy}
   \begin{adjustwidth}{-4cm}{-4cm}
      \subfloat{%
        \includegraphics[scale=0.35]{../knn_accuracy_grayscale.pdf}
@@ -167,11 +165,12 @@ Overall, knn reaches a very significant accuracy. The accuracy level  when consi
     \includegraphics[scale=0.35]{../knn_accuracy_rgb.pdf}  
      }
      \centering
-     \caption{Test performance knn}
+     \caption{Test accuracy knn}
       \end{adjustwidth}
    \end{figure}
+   
 \noindent The execution time of the algorithm is acceptable and does not exceed 30s. It is worth noting that the execution time, given the number of features, have just neglegible variation when the number of neighbours changes.\\
-If one was to use just one model, I would recommend to choose a 1-nn with 50 features.
+
 
 
    
@@ -188,7 +187,7 @@ If one was to use just one model, I would recommend to choose a 1-nn with 50 fea
       \end{adjustwidth}
    \end{figure}
    
-\noindent Overall, the baseline is very promising but hard to improve. The knn algorithm is suitable to classify images.
+\noindent Overall, the baseline is very promising but hard to improve. The knn algorithm seems to be very suitable to classify images.
 
 \subsection{SVM}
 Support vector machines are often used in image classification. Thier most basic implamentation is based on a linear classifier but the dataset seems to be hardly linearly separable. Therefore the gaussia kernel was applied to allow generic curves to be used. The kernel that was used, is the gaussian kernel. The gaussian kernel can be seen as a linear combiantion of polynomial kernels, therefore it can be seen as the most genral kernel implemented in the library. The kernel allow for more accurate predictions but slows a little bit down the algorithm execution time.\\
@@ -246,6 +245,7 @@ CONFRONTO CON LA LETTERATURA
 \section{Appendix: Code}
 \newpage
 \begin{thebibliography}{9}
+
 \bibitem{dataset}
 \textit{Horea Muresan, Mihai Oltean, Fruit recognition from images using deep learning, Acta Univ. Sapientiae, Informatica Vol. 10, Issue 1, pp. 26-42, 2018.}
 

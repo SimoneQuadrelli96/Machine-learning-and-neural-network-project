@@ -89,23 +89,28 @@ for (n_f in features){
   }
 }
 
-time_knn
-#[1]  0.3174582  0.3071220  0.3119910  0.3195369  0.3226392  0.3241997  0.7329173  0.7252805  0.7408412  0.7422488  0.7687256
-#[12]  0.7552888  5.2286835  5.2341237  5.3759677  5.3922064  5.3973079  5.6475928 15.7594717 15.1007993 15.3384907 15.3406219
-#[23] 15.1126273 14.6999736 23.1744928 23.1385210 23.0463626 23.1748335 23.1040637 23.2457619
-res_knn
-#[1] 0.7901316 0.7853070 0.7817982 0.7750000 0.7719298 0.7688596 0.9260965 0.9228070 0.9192982 0.9182018 0.9140351 0.9122807
-#[13] 0.9320175 0.9293860 0.9267544 0.9247807 0.9190789 0.9182018 0.9296053 0.9234649 0.9201754 0.9186404 0.9109649 0.9087719
-#[25] 0.9291667 0.9223684 0.9184211 0.9164474 0.9087719 0.9041667
+time_knn <- c(
+ 0.3174582,  0.3071220 , 0.3119910 , 0.3195369,  0.3226392 , 0.3241997,  0.7329173 , 0.7252805  ,0.7408412 , 0.7422488 ,
+ 0.7687256,
+  0.7552888,  5.2286835,  5.2341237,  5.3759677,  5.3922064  ,5.3973079,  5.6475928, 15.7594717, 15.1007993 ,15.3384907,
+ 15.3406219,
+15.1126273, 14.6999736, 23.1744928 ,23.1385210, 23.0463626, 23.1748335, 23.1040637 ,23.2457619)
+res_knn <- c( 0.7901316, 0.7853070, 0.7817982, 0.7750000, 0.7719298, 0.7688596, 0.9260965 ,0.9228070, 0.9192982, 0.9182018,
+              0.9140351, 0.9122807,
+0.9320175 ,0.9293860, 0.9267544, 0.9247807, 0.9190789, 0.9182018 ,0.9296053 ,0.9234649 ,0.9201754, 0.9186404 ,0.9109649 ,
+0.9087719,
+ 0.9291667, 0.9223684 ,0.9184211, 0.9164474 ,0.9087719 ,0.9041667)
 
 
 precision <- matrix(res_knn,ncol=length(features))
-matplot(precision, type = c("b"),pch=1,col = 1:length(features),  xlab = "Neighbours", ylab="Accuracy", main="KNN ACCUARCY")
+matplot(precision, type = c("b"),pch=1,  xlab = "Neighbours", ylab="Accuracy", main="KNN ACCUARCY", xaxt = "n")
+axis(1, at=1:length(neighbours), labels=neighbours)
 legend("left", legend = features, col=1:length(features), pch=1, title="Features")
 
-precision <- matrix(time_knn,ncol=length(features))
-matplot(precision, type = c("b"),pch=1,col = 1:length(features),  xlab = "Neighbours", ylab="Execution time (s)", main="KNN EXECUTION TIME")
-legend("left", legend = features, col=1:length(features), pch=1, title="Features")
+time <- matrix(time_knn,ncol=length(features))
+matplot(time, type = c("b"),pch=1, xaxt = "n", xlab = "Neighbours", ylab="Execution time (s)", main="KNN EXECUTION TIME")
+axis(1, at=1:length(neighbours), labels=neighbours)
+legend("right", legend = features, col=1:length(features), pch=0.5, title="Features" ,cex = 0.65)
 
 features <- c(3,10,50,100,150)
 res_svm <- c()
