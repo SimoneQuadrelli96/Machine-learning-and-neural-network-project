@@ -43,6 +43,8 @@ for (fruit in fruits){
   i <- i +1
 }
 
+dim(training_features_matrix_rgb)
+#13648  7500
 
 set = "Test/"
 test_labels_vector <- NULL

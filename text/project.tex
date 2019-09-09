@@ -6,6 +6,9 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{changepage}
+\usepackage{amsmath}
+
+
 
 
 \begin{document}
@@ -103,12 +106,10 @@ To obtain the final grayscale representation  $y$ of a pixel $x$, the following 
 
 
 \section{Data analysis}
-The procedure described in the following is the same for grayscale features and rgb features.
-The first step in the analysis was the data extraction and the creation of the data matrix and the vector of the labels. 
-The images have 100x100 pixels, but to limit the compuational complexity of the following algorithms i decided to resize them to 50x50 pixels.
-The feature vector are extracted using the functions of the library \textit{imager}. Onche the data vectors are extracted , a data matrix is created. Each row of the matrix contains the linearized representation of the image. A separate vector of labels was create, one for each image. 
+This section provides the reader an insight of the procedure used to analyze the data, it also provides a commantary of the results.\\
+The procedure described in the section is the same for both the grayscale featires and the rgb features, however the differ in the topology of the convolutional neural network. Algorithm \ref{schema} provides a brief overview of the analysis.
 
-\begin{algorithm}[H] 
+\begin{algorithm}[H] \label{schema}
    \caption{Schema of the analysis}
     \begin{algorithmic}[1]
     \State Feature extraction
@@ -120,9 +121,14 @@ The feature vector are extracted using the functions of the library \textit{imag
 \end{algorithmic}
 \end{algorithm}
 
-\noindent Most learning algorithms are exponentially slow in the number of the feature or at least significantly slow down as the number of feature increases. Furthermore, it is reasonable to belive that many of the pixels are useless since they are just part of the background. As a result i choose to reduce the dimensionality of the data using the Principal component analysis (PCA).  It is one of the most common technique to reduce the dimensionality of the data since it is very efficient. Once all the principal componenet are computed we can choose a subset of the that cna explain most of the variance.
-INSERISCI I TEMPI DI ESECUZIONE DELLA PCA
-\begin{figure}[H]  
+\subsection{Feature extraction and dimensionality reduction}
+The first major step in the analysis is the data extraction and the computation of the data matrix and the vector of the labels concerning the following fruits: \textit{Apple Golden 1}, \textit{Apple Golden 2}, \textit{Apple Red 2}, \textit{Apple Red 1}, \textit{Banana}, \textit{Apricot}, \textit{Blueberry}. \\
+As previously stated, the dataset contains 100x100 pixels images, therefore the data matrix with rgb features has 409440000 elements. Bearing that in mind, the images are rescaled to 50 $\times$ 50 pixels to reduce the computational complexity of the problem. 
+The feature vector of each image is extracted by the functions of the library \textit{imager}. Once all the data vectors are extracted, a data matrix is created. Each row of the matrix contains the linearized representation of the image. At the same time a vector of labels is computed.\\
+Most learning algorithms are exponentially slow in the number of the feature or at least significantly slow down as the number of feature increases. Furthermore, it is reasonable to belive that many of the pixels are useless since they are just part of the background. As a result, Principal component analysis (PCA) is exploited to reduce the dimensionality of the data and select the most promising features. PCA is one of the most common technique to reduce the dimensionality of the data since it is very efficient and many libraries implement it. PCA computes all the principal components that can be seen as the axis along which data differ the most. \\
+When using the grayscale features the execution time required to compute the PCA is 5 minutes and 30 seconds. However, the execution time required to compute the PCA is about 57 minutes for grb features\footnote{All time measurement rely on a Intel Core i5-7200U dual core processor and 8 GB DDR4 RAM}.
+
+\begin{figure}[H]   \label{variance}
   \begin{adjustwidth}{-4cm}{-4cm}
      \subfloat{%
        \includegraphics[scale=0.3]{../cumulative_variance_graysalce.pdf} 
@@ -131,13 +137,19 @@ INSERISCI I TEMPI DI ESECUZIONE DELLA PCA
     \includegraphics[scale=0.3]{../cumulative_variance_grb.pdf} 
      }
      \centering
-     \caption{Cumulative variance}
+     \caption{Cumulative variance explaind by the principal components: the figure on the left concerns grayscale feature, the figure on the right concerns rgb features}
       \end{adjustwidth}
    \end{figure}
 
-\noindent As the plost above show, in both cases, using 150 is enough to explain all the variance in the data. However, having fixed the number of compunents, rgb components explain less variance than the grayscale components. To compare and analyze the performance of the learning algorithms i choose to use the following set of principal components $\{3,10,50,100,150\}$.  \\
+\noindent As figure \ref{variance} show, in both cases, using 150 is enough to explain all the variance in the data. However, having fixed the number of compunents, rgb components explain less variance than the grayscale components. To compare and analyze the performance of the learning algorithms the following set of principal components $\{3,10,50,100,150\}$ are used.  \\
 \subsection{Metrics}
-The metrics used
+To aveluate the performance of an algorithm is necessary to choose a metric. The metric choosein is accuracy that can be computed as follows:
+
+\begin{equation}
+\text{accuracy}  = \frac{\text{Number of correct predictions}}{ \text{Total number of predictions}}
+\end{equation}
+ 
+
 
 \subsection{Baseline and knn}
 The rationale behind this choice is to find the number of components that give the best result having at the same time a fast execution time. The k-nearest neighbours (knn) algorithm because it is known to be one of the most efficient classification algorithm even if it is very simple and dated \cite{knnresults}. Moreover, in image classification seem to perform quite as well as more sophisticated algorithms such as support vector machines. Bearing in mind  that, it seems to me the best choice to define a baseline. \\
