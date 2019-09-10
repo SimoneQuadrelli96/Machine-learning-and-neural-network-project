@@ -1,0 +1,9 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Dataset and Features}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{RGB colour space}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Grayscale colour space}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Data analysis}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Feature extraction and dimensionality reduction}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Baseline and knn}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Support Vector Machines}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.4}{Convolutional neural network}{section.3}% 9

@@ -7,6 +7,7 @@
 \usepackage{algpseudocode}
 \usepackage{changepage}
 \usepackage{amsmath}
+\usepackage[driver=pdftex]{geometry}
 
 
 
@@ -225,13 +226,14 @@ In both cases the best accuracy, as before, is reached when the number of featur
 
 
 \subsection{Convolutional neural network}
-Convolutional neural netwoks (CNN) are deep learning neaural networks suitable for image classificatigeon. Deep learning algorithms are a class of machine learning algorithms that uses multiple layers to extract higher level features. The main reason to prefer deep learning techniques is that many layers with fewer weights are more flexible and precise in classification than neural networs with many weights and fewer layers.    
-Convolution layer
-The pooling layer just extract a reduced representation of the data computed in the convlutional layer. The dimension specified in the pooling layer defines a dimensions of the matrix of pixels to look at, once the matrix is identified it can be reduce by extracting the hight value in it. Notice that the mean or min value can also be extracted.
-After this process the image dimensions has been reduced. After the convolutional part of the net there exist some fully connected layer that returns a prediction from the featurtes extracted from the convolutional section. The output layer has one neuron for each possible class and the class having the highest probability will be chose as a prediction.
-The following images represent the training accuracy of the cnn used to classify the data. The training accuracy reach as high as 0.99 while the test accuracy is a bit lower.
-THe test accuracy reached when using grayscale features is 0.90, while the test accuracy when using rgb features is 0.94.
-\begin{figure}[H]  
+Convolutional neural netwoks (CNN) are deep learning neaural networks suitable for image classificatIOon. Deep learning algorithms are a class of machine learning algorithms that uses multiple layers to extract higher level features. The main reason to prefer deep learning techniques is that many layers with fewer weights are more flexible and precise in classification than neural networs with many weights and fewer layers.    
+Convolutional layers optimize a matrix known as filter which is applied to each portion of the data.
+The pooling layer just extract a reduced representation of the data computed in the convolutional layer. In the convolutional layer the dimensionality of the data is reduced by selecting a subset of the image and extracting a single value from the matrix. Usually the highest, mean or minimum value are extracted. This process can be repeated by stacking convolutional and pooling layers.\\
+Upon the convolutional and pooling layer some fully connceted layers are stacked. The purpose of these layers is to compute the probability that the input image belongs to each class.The last layer of the net has a number of neurons equal to the number of class used and the output is computed exploiting the \textit{softmax} function that provides a probability distribution. The predicted class is the class having the hights probability. \\
+The implementation of the CNNs relies on the \textit{Keras} and \textit{tensorflow} API.\\
+Figure \ref{cnn} represents plot the training accuracy of the cnn with respect to the number of epochs of the training process. The training accuracy reachs as high as 0.99 while the test accuracy is a bit lower for both grayscale and rgb features.
+When grayscale features are involved the test accuracy of the cnn is about 0.90, while is 0.94 when considering rgb features.
+\begin{figure}[H]  \label{cnn} 
   \begin{adjustwidth}{-4cm}{-4cm}
      \subfloat{%
       \includegraphics[scale=0.3]{../cnn_grayscale.png} 
@@ -244,13 +246,396 @@ THe test accuracy reached when using grayscale features is 0.90, while the test 
       \end{adjustwidth}
    \end{figure}
 \noindent The training time of both the nets is about 1 minute.
-The CNN seem to be the best model to use to classify images.
+Overall, the CNN seem to be the best model to classify images.
 \section{Conclusions}
+
 RISULTATI MIGLIORI
 CONFRONTO TRA ALGORITMI
 CONFRONTO CON LA LETTERATURA
 RIASSUNTO DEI PUNTI FOCALI RAGGIUNTI
+
+\newpage
 \section{Appendix: Code}
+\begin{verbatim}
+library(jpeg)
+library(imager)
+library(class)
+library(e1071)
+library(FactoMineR)
+library(factoextra)
+library(keras)
+library(tensorflow)
+
+read_fruit_grayscale <- function(path,set,fruit, dim = 50){
+  filenames <- list.files(paste(path,set,fruit,sep=""), pattern = "*.jpg")
+  images_grayscale = list()
+  i = 1
+  for (name in  filenames){
+    path_name = paste(path,set,fruit,"/",name,sep="")
+    img <- grayscale(load.image(path_name))
+    inmg <- resize(img,dim,dim)
+    images_grayscale[[i]] = as.vector(img)
+    i = i+1
+  }
+  return(images_grayscale)
+}
+
+
+#number of pixels to be used
+dim = 50
+path = "../fruits-360_dataset/fruits-360/"
+
+# grayscale extraction
+set = "Training/"
+training_features_matrix <- NULL
+training_labels_vector <- NULL
+
+fruits = c ("Apple Golden 1", "Apple Golden 2", 
+"Apple Red 2","Apple Red 1", "Banana", "Apricot", "Blueberry")
+i = 0
+for (fruit in fruits){
+  images_grayscale <- read_fruit_grayscale(path,set,fruit)
+  images_grayscale <- matrix(unlist(images_grayscale), ncol = dim*dim, byrow = TRUE)
+  training_features_matrix <- rbind(training_features_matrix,images_grayscale)
+  labels <-replicate(dim(images_grayscale)[1], i)
+  training_labels_vector <- c(training_labels_vector,labels)
+  i <- i +1
+}
+
+
+set = "Test/"
+test_features_matrix <- NULL
+test_labels_vector <- NULL
+i = 0
+for (fruit in fruits){
+  images_grayscale <- read_fruit_grayscale(path,set,fruit)
+  images_grayscale <- matrix(unlist(images_grayscale), ncol = dim*dim, byrow = TRUE)
+  test_features_matrix <- rbind(test_features_matrix,images_grayscale)
+  labels <-replicate(dim(images_grayscale)[1], i)
+  test_labels_vector <- c(test_labels_vector,labels)
+  i <- i +1
+}
+
+
+#PCA
+t1 <- Sys.time()
+pca <- prcomp(training_features_matrix,center = TRUE, scale=TRUE)
+t2 <- Sys.time()
+pca_execution_time <- t2 - t1
+# pca_execution_time = Time difference of 5.653888 mins
+pr_var <- (pca$sdev[1:200])^2
+prop_varex <- pr_var/sum(pr_var)
+plot(cumsum(prop_varex), xlab = "Principal Component",
+     ylab = "Cumulative Proportion of Variance Explained")
+
+
+training_features_matrix_pc <- pca$x
+test_features_matrix_pc <- predict(pca, newdata = test_features_matrix)
+
+#BASELINE
+neighbours <- c(1,3,5,7,9,11)
+features <- c(3,10,50,100,150)
+res_knn <- c()
+time_knn <- c()
+i <- 1
+for (n_f in features){
+  for (n in neighbours){
+    t1 <- Sys.time()
+    knn <-knn(training_features_matrix_pc[,1:n_f], test_features_matrix_pc[,1:n_f], 
+      as.factor(training_labels_vector), k=n)
+    t2 <- Sys.time()
+    time_knn[i] <- as.double(difftime(t2,t1,  units = "secs"))
+    res_knn[i] <- sum(knn == test_labels_vector)/length(test_labels_vector)
+    i <- i +1
+  }
+}
+
+time_knn
+
+res_knn 
+
+precision <- matrix(res_knn,ncol=length(features))
+matplot(precision, type = c("b"),pch=1,  xlab = "Neighbours",
+ ylab="Accuracy", main="KNN ACCUARCY", xaxt = "n")
+axis(1, at=1:length(neighbours), labels=neighbours)
+legend("left", legend = features, col=1:length(features), pch=1, title="Features")
+
+time <- matrix(time_knn,ncol=length(features))
+matplot(time, type = c("b"),pch=1, xaxt = "n", xlab = "Neighbours", 
+ylab="Execution time (s)", main="KNN EXECUTION TIME")
+axis(1, at=1:length(neighbours), labels=neighbours)
+legend("right", legend = features, col=1:length(features), pch=0.5, title="Features" ,cex = 0.7)
+
+features <- c(3,10,50,100,150)
+res_svm <- c()
+time_svm <- c()
+i <- 1
+for (n_f in features){
+  training_features_matrix_svm <- as.data.frame(training_features_matrix_pc[,1:n_f])
+  training_features_matrix_svm$target <- as.factor(training_labels_vector)
+  test_features_matrix_svm <- as.data.frame(test_features_matrix_pc[,1:n_f])
+  
+  t1 <- Sys.time()
+  SVM <- svm(target ~ ., data = training_features_matrix_svm, kernel = "radial")
+  t2 <- Sys.time()
+  res <- predict(SVM, newdata = test_features_matrix_svm)
+  time_svm[i] <- as.double(difftime(t2,t1,  units = "secs"))
+  res_svm[i] <-     sum(res == test_labels_vector)/length(test_labels_vector)
+  i <- i +1
+}
+
+time_svm
+res_svm 
+
+plot(res_svm, type = c("b"),pch=1 , xlab = "Features", 
+ylab="Precision", main="SVM ACCURACY", xaxt = "n")
+axis(1, at=1:length(features), labels=features)
+
+
+plot(time_svm, type = c("b"),pch=1 , xlab = "Features", 
+ylab="Execution time (s)", main="SVM EXECUTION TIME", xaxt = "n")
+axis(1, at=1:length(features), labels=features)
+
+
+#CNN KERAS
+
+y_train <- to_categorical(training_labels_vector, length(fruits))
+y_test <- to_categorical(test_labels_vector, length(fruits))
+x_train<-array_reshape(training_features_matrix,c(nrow(training_features_matrix),dim,dim,1))
+x_test<-array_reshape(test_features_matrix,c(nrow(test_features_matrix),dim,dim,1))
+
+model <- keras_model_sequential() %>%
+  layer_conv_2d(filters = 16, kernel_size = c(3, 3), activation = "relu",
+                input_shape = c(50, 50, 1)) %>%
+  layer_max_pooling_2d(pool_size = c(4,4)) %>%
+  layer_conv_2d(filters = 64, kernel_size = c(2, 2), activation = "relu") %>%
+  layer_flatten() %>%
+  layer_dropout(rate=0.5) %>%
+  layer_dense(units = 300, activation = "relu") %>%
+  layer_dense(units = 200, activation = "tanh") %>%
+  layer_dense(units = length(fruits), activation = "softmax")
+
+model <- keras_model_sequential() %>%
+  layer_conv_2d(filters = 16, kernel_size = c(3, 3), activation = "relu",
+                input_shape = c(50, 50, 1)) %>%
+  layer_max_pooling_2d(pool_size = c(4,4)) %>%
+  layer_conv_2d(filters = 32, kernel_size = c(3, 3), activation = "relu") %>%
+  layer_max_pooling_2d(pool_size = c(4, 4)) %>%
+  #layer_conv_2d(filters = 128, kernel_size = c(2, 2), activation = "tanh") %>%
+  #layer_max_pooling_2d(pool_size = c(4, 4)) %>%
+  #layer_conv_2d(filters = 128, kernel_size = c(2, 2), activation = "tanh") %>%
+  layer_flatten() %>%
+  layer_dropout(rate=0.4) %>%
+  layer_dense(units = 300, activation = "relu") %>%
+  layer_dense(units = 200, activation = "relu") %>%
+  layer_dense(units = length(fruits), activation = "softmax")
+
+model %>% compile(
+  optimizer='adam',
+  loss='categorical_crossentropy',
+  metrics='accuracy')
+
+t1 <- Sys.time()
+history<- model %>% fit(
+  x_train,y_train,
+  epochs=3,
+  batch_size=50)
+t2 <- Sys.time()
+cnn_execution_time <-  as.double(difftime(t2,t1,  units = "secs"))
+model %>% evaluate(x_test, y_test)
+
+#RGB ANALYSIS
+read_fruit_rgb <- function(path,set,fruit, dim = 50){
+  filenames <- list.files(paste(path,set,fruit,sep=""), pattern = "*.jpg")
+  images_rgb= list()
+  i = 1
+  for (name in  filenames){
+    path_name = paste(path,set,fruit,"/",name,sep="")
+    img <- load.image(path_name)
+    inmg <- resize(img,dim,dim)
+    images_rgb[[i]] = as.vector(img)
+    i = i+1
+  }
+  return(images_rgb)
+}
+
+#number of pixels to be used
+dim = 50
+path = "../fruits-360_dataset/fruits-360/"
+
+# rgb extraction
+
+set = "Training/"
+training_labels_vector <- NULL
+fruits = c ("Apple Golden 1", "Apple Golden 2", "Apple Red 2",
+"Apple Red 1", "Banana", "Apricot", "Blueberry")
+
+i = 0
+training_features_matrix_rgb <- NULL
+for (fruit in fruits){
+  images_rgb <- read_fruit_rgb(path,set,fruit)
+  images_rgb <- matrix(unlist(images_rgb), ncol = dim*dim*3, byrow = TRUE)
+  labels <-replicate(dim(images_rgb)[1], i)
+  training_labels_vector <- c(training_labels_vector,labels)
+  training_features_matrix_rgb <- rbind(training_features_matrix_rgb,images_rgb)
+  i <- i +1
+}
+
+
+set = "Test/"
+test_labels_vector <- NULL
+
+i = 0
+test_features_matrix_rgb <- NULL
+for (fruit in fruits){
+  images_rgb <- read_fruit_rgb(path,set,fruit)
+  images_rgb <- matrix(unlist(images_rgb), ncol = dim*dim*3, byrow = TRUE)
+  test_features_matrix_rgb <- rbind(test_features_matrix_rgb,images_rgb)
+  labels <-replicate(dim(images_rgb)[1], i)
+  test_labels_vector <- c(test_labels_vector,labels)
+  i <- i +1
+}
+
+#PCA
+t1 <- Sys.time()
+pca_rgb <- prcomp(training_features_matrix_rgb,center = TRUE, scale=TRUE)
+t2 <- Sys.time()
+pca_rgb_execution_time <- as.double(difftime(t2,t1,  units = "min")) # 57.14827 minutes
+pr_var_rgb <- (pca_rgb$sdev[1:200])^2
+prop_varex_rgb <- pr_var_rgb/sum(pr_var_rgb)
+plot(cumsum(prop_varex_rgb), xlab = "Principal Component",
+     ylab = "Cumulative Proportion of Variance Explained")
+
+training_features_matrix_rgb_pc <- pca_rgb$x
+test_features_matrix_rgb_pc <- predict(pca_rgb, newdata = test_features_matrix_rgb)
+
+#KNN
+neighbours <- c(1,3,5,7,9,11)
+features <- c(3,10,50,100,150)
+res_knn <- c()
+time_knn <- c()
+i <- 1
+for (n_f in features){
+  for (n in neighbours){
+    t1 <- Sys.time()
+    knn <-knn(training_features_matrix_rgb_pc[,1:n_f], test_features_matrix_rgb_pc[,1:n_f], as.factor(training_labels_vector), k=n)
+    t2 <- Sys.time()
+    time_knn[i] <- as.double(difftime(t2,t1,  units = "secs"))
+    res_knn[i] <- sum(knn == test_labels_vector)/length(test_labels_vector)
+    i <- i +1
+  }
+}
+
+time_knn 
+res_knn
+
+
+precision <- matrix(res_knn,ncol=length(features))
+matplot(precision, type = c("b"),pch=1,  xlab = "Neighbours", 
+ylab="Accuracy", main="KNN ACCUARCY", xaxt = "n")
+axis(1, at=1:length(neighbours), labels=neighbours)
+legend("left", legend = features, col=1:length(features), pch=1, title="Features")
+
+time <- matrix(time_knn,ncol=length(features))
+matplot(time, type = c("b"),pch=1, xaxt = "n", xlab = "Neighbours", 
+ylab="Execution time (s)", main="KNN EXECUTION TIME")
+axis(1, at=1:length(neighbours), labels=neighbours)
+legend("right", legend = features, col=1:length(features), pch=0.5, title="Features" ,cex = 0.65)
+
+features <- c(3,10,50,100,150)
+res_svm <- c()
+time_svm <- c()
+i <- 1
+for (n_f in features){
+  training_features_matrix_svm <- as.data.frame(training_features_matrix_rgb_pc[,1:n_f])
+  training_features_matrix_svm$target <- as.factor(training_labels_vector)
+  test_features_matrix_svm <- as.data.frame(test_features_matrix_rgb_pc[,1:n_f])
+  
+  t1 <- Sys.time()
+  SVM <- svm(target ~ ., data = training_features_matrix_svm, kernel = "radial")
+  t2 <- Sys.time()
+  res <- predict(SVM, newdata = test_features_matrix_svm)
+  time_svm[i] <- as.double(difftime(t2,t1,  units = "secs"))
+  res_svm[i] <-     sum(res == test_labels_vector)/length(test_labels_vector)
+  i <- i +1
+}
+
+time_svm
+res_svm
+
+
+plot(res_svm, type = c("b"),pch=1 , xlab = "Features", 
+ylab="Precision", main="SVM ACCURACY", xaxt = "n")
+axis(1, at=1:length(features), labels=features)
+legend("right", legend = features, col=1:length(features), pch=1, title="Features")
+
+plot(time_svm, type = c("b"),pch=1 , xlab = "Features", 
+ylab="Execution time (s)", main="SVM EXECUTION TIME", xaxt = "n")
+axis(1, at=1:length(features), labels=features)
+
+features <- c(3,10,50,100,150)
+res_svm <- c()
+time_svm <- c()
+i <- 1
+for (n_f in features){
+  training_features_matrix_svm <- as.data.frame(training_features_matrix_rgb_pc[,1:n_f])
+  training_features_matrix_svm$target <- as.factor(training_labels_vector)
+  test_features_matrix_svm <- as.data.frame(test_features_matrix_rgb_pc[,1:n_f])
+  
+  t1 <- Sys.time()
+  SVM <- svm(target ~ ., data = training_features_matrix_svm, kernel = "radial")
+  t2 <- Sys.time()
+  res <- predict(SVM, newdata = test_features_matrix_svm)
+  time_svm[i] <- as.double(difftime(t2,t1,  units = "secs"))
+  res_svm[i] <-     sum(res == test_labels_vector)/length(test_labels_vector)
+  i <- i +1
+}
+
+time_svm
+#[1] 11.048466  7.334074 20.145182 42.065335 66.613935 radial kernel
+res_svm 
+#0.6754386 0.8802632 0.9164474 0.9195175 0.9151316 radial kernel
+
+plot(res_svm, type = c("b"),pch=1 , xlab = "Features", ylab="Precision", main="SVM ACCURACY", xaxt = "n")
+axis(1, at=1:length(features), labels=features)
+
+plot(time_svm, type = c("b"),pch=1 , xlab = "Features", ylab="Execution time (s)", main="SVM EXECUTION TIME", xaxt = "n")
+axis(1, at=1:length(features), labels=features)
+
+
+
+y_train <- to_categorical(training_labels_vector, length(fruits))
+y_test <- to_categorical(test_labels_vector, length(fruits))
+x_train<-array(training_features_matrix_rgb,c(nrow(training_features_matrix_rgb),dim,dim,3))
+x_test<-array(test_features_matrix_rgb,c(nrow(test_features_matrix_rgb),dim,dim,3))
+
+model <- keras_model_sequential() %>%
+  layer_conv_2d(filters = 16, kernel_size = c(3, 3), activation = "relu",
+                input_shape = c(50, 50, 3)) %>%
+  layer_max_pooling_2d(pool_size = c(4,4)) %>%
+  layer_conv_2d(filters = 64, kernel_size = c(2, 2), activation = "relu") %>%
+  layer_flatten() %>%
+  layer_dropout(rate=0.5) %>%
+  layer_dense(units = 300, activation = "relu") %>%
+  layer_dense(units = 200, activation = "tanh") %>%
+  layer_dense(units = length(fruits), activation = "softmax")
+
+model %>% compile(
+  optimizer='adam',
+  loss='categorical_crossentropy',
+  metrics='accuracy')
+
+t1 <- Sys.time()
+history<- model %>% fit(
+  x_train,y_train,
+  epochs=3,
+  batch_size=50)
+t2 <- Sys.time()
+cnn_execution_time <-  as.double(difftime(t2,t1,  units = "secs"))
+model %>% evaluate(x_test, y_test)
+
+\end{verbatim}
+
 \newpage
 \begin{thebibliography}{9}
 
@@ -258,7 +643,7 @@ RIASSUNTO DEI PUNTI FOCALI RAGGIUNTI
 \textit{Horea Muresan, Mihai Oltean, Fruit recognition from images using deep learning, Acta Univ. Sapientiae, Informatica Vol. 10, Issue 1, pp. 26-42, 2018.}
 
 \bibitem{review}
-\textit{Khurram Hameed, Douglas Chai, Alexander Rassau, A comprehensive review of fruit and vegetable classification techniques. Image and Vision Computing 80 (2018) 22-44.}
+\textit{Khurram Hameed, Douglas Chai, Alexander Rassau, A comprehensive review of fruit and vegetable classification techniques. Image and Vision Computing 80 (2018) 22-44.} 
 
 \bibitem{grayscaleconversion}
 \textit{Samuel Macedo, Givanio Melo, Judith Kelner, A comparative study of grayscale conversion techniques applied to SIFT descriptors, SBC Journal on Interactive Systems, volume 6, number 2, 2015.}
