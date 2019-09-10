@@ -245,14 +245,36 @@ When grayscale features are involved the test accuracy of the cnn is about 0.90,
      \caption{Execution time svm}
       \end{adjustwidth}
    \end{figure}
-\noindent The training time of both the nets is about 1 minute.
-Overall, the CNN seem to be the best model to classify images.
+\noindent The training time of both the nets is about 1 minute.\\
+Overall, the CNNs seem to be the best model to classify images.
 \section{Conclusions}
+This work aims to analyze the performance of well-known classification algorithms: K-nearest neighbour, support vector machines and convolutional neural networks. The dataset chosen is
+Theory suggests that SVM should have more predictive power and accuracy. However, despite its simplicity KNN matches and even outperform SVM. In this work we confirmed what other researches found out: overall, CNN have the best performance and rgb are very significant features even if they are easy to extract.  \\
+Table \ref{results} provides the reader an overview of the results. For each algorithm and for each feature the table presents the best accuracy.
+The accuracy rate achieved using rgb features are higher than all the accuracy rate achieved with grayscale features. \\
+\begin{table}[H] \label{results}
+\centering
+ \begin{tabular}{|c|c|c|c|} 
+ \hline
+  Features & 1-NN & SVM & CNN\\
+ \hline
+ Grayscale&0.86&0.84&0.90 \\
+ \hline
+ Rgr&0.91& 0.92 & 0.94  \\
+ \hline
+\end{tabular}
+\caption{Best accuracy scores}
+\end{table}
 
-RISULTATI MIGLIORI
-CONFRONTO TRA ALGORITMI
-CONFRONTO CON LA LETTERATURA
-RIASSUNTO DEI PUNTI FOCALI RAGGIUNTI
+\noindent The comparison of the resuslt in this work with the state-of-art in fruit and vegetable classification relies on the results presented in \cite{review}. The comparison is not straightforward because most of the letterature focuses on one vs all classification while this work handles multiclass classification. Mixed fruit classiffication reported in literature  exploits a lower number of examples. The best results using mixed fruits has an accuracy of 0.98 with k-mean clustering. The result of the project is 4\% precise even of the comparison is not exact. 
+Considering other results the project reports an accuracy rate about the mean of other less recent papers.
+Nevertheless, the objective of the project were fulfilled:
+\begin{itemize}
+\item Grayscale features are suffiencent to achieve a remarkable accuracy 0.901
+\item Rgb features increas ethe best accuracy rate by 0.04
+\item Despite its semplicity, Knn has a remarkable accuracy rate. 
+\item Simplicity is prerequisite for reliability. Edsger Dijkstra
+\end{itemize}
 
 \newpage
 \section{Appendix: Code}

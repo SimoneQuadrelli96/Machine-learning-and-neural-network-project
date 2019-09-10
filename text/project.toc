@@ -8,4 +8,4 @@
 \contentsline {subsection}{\numberline {3.3}Support Vector Machines}{6}
 \contentsline {subsection}{\numberline {3.4}Convolutional neural network}{8}
 \contentsline {section}{\numberline {4}Conclusions}{9}
-\contentsline {section}{\numberline {5}Appendix: Code}{10}
+\contentsline {section}{\numberline {5}Appendix: Code}{11}
