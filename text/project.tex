@@ -63,11 +63,11 @@ the analysis with wise commentary  \\
 conclusions (should include the findings/keypoints) \\
 the Appendix, containing all the R code \\
 
-The present project addresses the fruit and vegetable multiclass classification problem. Its objective of this project is to classify a variety of fruits and vegetables whose images are stored in a recently released dataset.\\
+The present project addresses the fruit and vegetable multiclass classification problem. The objective of this project is to classify a variety of fruits and vegetables whose images are stored in a recently released dataset.\\
 \\
 Fruit and vegetable classification is a challenging task, there are two different kind of problems that must be overcome: vegetables and fruits within the same class can differ in shape and colour due to maturity and growth. On the countrary, vegetables and fruits in different classes, such as red apples or grapes, may be very similar both in textures and in colours. 
-Fruit and vegetable classification has a key role in many industries: it can be exploited to make agriculter more autonomous than ever before in history, but it can also be applied to all stages of the supply chain to assess the quality of the products from the producer to the consumer. 
-The ability of harvesting robots can be enhanced by enforcing fruit and vegetables recognition, indeed it may allow them to recognize not only the type of fruit or vegetable but also its maturity or wheter it is rotten. Moreover, autonomous classification provides more consistent quality assessment since it does not depend of the opinion of different workers.
+Fruit and vegetables classification has a key role in many industries: it can be exploited to make agriculture more autonomous than ever before in history, but it can also be applied to all stages of the supply chain to assess the quality of the products from the producer to the consumer. 
+The ability of harvesting robots can be enhanced by enforcing fruit and vegetables recognition, indeed it may allow them to recognize not only the type of fruit or vegetable but also its maturity or whether it is rotten. Moreover, autonomous classification provides more consistent quality assessment since it does not depend of the opinion of different workers.
 \\\\
 The projects will analyze the classification performance of three machine learning algorithms on different fruits. The k-nearest neighbour (knn) algorithm was used to compute a baseline, a more sophistocated, the support vector machines (SVM) algorithm was later used for classification. The last approach was to construct a convolutional neural network becausethey are knoen to suit well the image classification. The are two different kind of features that were extracted to feed the algorithms: the grayscale and the rgb representation of the images.
 
@@ -81,14 +81,14 @@ The objective of the project are
 Descrivere cosa si trova nelle sezioni successive
 
 \section{Dataset and Features}
-The analyzed dataset, known as \textit{Fruits 360}, was originally published in 2017  by Horea Muresan and Mihai Oltean to address fruit and vegetable classification \cite{dataset}. The existence of either too small datasets or too low-quality dataset was most compelling problem.  On the countrary, this dataset provides more that 70000 images of 114 different fruits and vegetables> Each image has a definition of 100 $\times$ 100 pixels. To increase the reliability of the results, it contains images of rotated fruits and vegetables. However those images make the training process much harder .
+The analyzed dataset, known as \textit{Fruits 360}, was originally published in 2017  by Horea Muresan and Mihai Oltean to address fruit and vegetable classification \cite{dataset}. The existence of either too small datasets or too low-quality dataset was the most compelling problem.  On the countrary, this dataset provides more that 70000 images of 114 different fruits and vegetables. Each image has a definition of 100 $\times$ 100 pixels. To increase the reliability of the results, it contains images of rotated fruits and vegetables. However those images make the training process much harder .
 As the authors explain, the dataset was produced as follows: fruits and vegetables were planted in the shaft of a low speed motor (3 rpm) and a short movie of 20 seconds was recorded. However, due to the variations in the lighting conditions, the background was not uniform and a dedicated algorithm was exploited to extract the fruit from the background. The images were of such high quality that no preprocessing was required.
 It is also worth noticing that the dataset was already splitted in train and test set, therefore no further splitting was required.\\
-Fruits and vegetables have several distinct visual characteristics that can be extracted from the images. Colour, shape, size and texture are the most commonly used features\footnote{Features are the characteristics of an object that can distinguish it from other objects} in image classification.  Among all the possible feauters that can be extracted from an image, colours features play a key role in fruit and vegetable classification. Indeed, they seem to suit the domain and their computation is very fast and efficient \cite{review}. The project focuses on the grayscale and rgb representation of the images. \\
+Fruits and vegetables have several distinct visual characteristics that can be extracted from the images. Colour, shape, size and texture are the most commonly used features\footnote{Features are the characteristics of an object that can distinguish it from other objects} in image classification.  Among all the possible feauters that can be extracted from an image, colours features play a key role in fruit and vegetable classification. Indeed, they seem to suit the domain \textbf{NON MOLTO CHIARA} and their computation is very fast and efficient \cite{review}. The project focuses on the grayscale and rgb representation of the images. \\
 The following lines introduce the reader to some concept of colour spaces and colour representation.
 Colour spaces are a specific organization of colors the allows to  reproduce the representation of colours. Two different colour spaces were exploited in this project: grayscale and the rgb.
 \subsection{RGB colour space}
-The RGB colour model is an additive color model, meaning that red, green and blue are added together to reproduce an wide array of colors. A color in the RGB colour model is described by indicating how much of the red, green, and blue is included. The colour of a pixel is expressed as an RGB triplet (R,G,G). Each component can vary from 0 to 255, since each channel is represented by a byte.
+The RGB colour model is an additive colour model, meaning that red, green and blue are added together to reproduce an wide array of colors. A color in the RGB colour model is described by indicating how much of the red, green, and blue is included. The colour of a pixel is expressed as an RGB triplet (R,G,B). Each component can vary from 0 to 255, since each channel is represented by a byte.
 
 
 \subsection{Grayscale colour space}
@@ -100,7 +100,7 @@ The $\Gamma$ function is defined as:
  x' = \Gamma(x) = Ax^{\gamma}
 \end{equation}
 where $x$ in the pixel intensity, $A$ is a scalar whose value is often $1$ and $\gamma$ is usually $\frac{1}{2.2}$.\\
-To obtain the final grayscale representation  $y$ of a pixel $x$, the following linear transformation is applied  \cite{grayscaleconversion}
+To obtain the final grayscale representation  $y$ of a pixel $x$, the following linear transformation is applied: \cite{grayscaleconversion}
 \begin{equation}
  y = 0.21 R' + 0.71 G' + 0.07  B'
 \end{equation}
@@ -108,10 +108,10 @@ To obtain the final grayscale representation  $y$ of a pixel $x$, the following 
 
 \section{Data analysis}
 This section provides the reader an insight of the procedure used to analyze the data, it also provides a commantary of the results.\\
-The procedure described in the section is the same for both the grayscale featires and the rgb features, however the differ in the topology of the convolutional neural network. Algorithm \ref{schema} provides a brief overview of the analysis.
+The procedure described in the section is the same for both the grayscale features and the rgb features, however the differ in the topology of the convolutional neural network. Algorithm \ref{schema} provides a brief overview of the analysis.
 
-\begin{algorithm}[H] \label{schema}
-   \caption{Schema of the analysis}
+\begin{algorithm}[H] 
+   \caption{Schema of the analysis} \label{schema}
     \begin{algorithmic}[1]
     \State Feature extraction
     \State Dimensionality reduction
@@ -129,7 +129,7 @@ The feature vector of each image is extracted by the functions of the library \t
 Most learning algorithms are exponentially slow in the number of the feature or at least significantly slow down as the number of feature increases. Furthermore, it is reasonable to belive that many of the pixels are useless since they are just part of the background. As a result, Principal component analysis (PCA) is exploited to reduce the dimensionality of the data and select the most promising features. PCA is one of the most common technique to reduce the dimensionality of the data since it is very efficient and many libraries implement it. PCA computes all the principal components that can be seen as the axis along which data differ the most. \\
 When using the grayscale features the execution time required to compute the PCA is 5 minutes and 30 seconds. However, the execution time required to compute the PCA is about 57 minutes for grb features\footnote{All time measurement rely on a Intel Core i5-7200U dual core processor and 8 GB DDR4 RAM}.
 
-\begin{figure}[H]   \label{variance}
+\begin{figure}[H] 
   \begin{adjustwidth}{-4cm}{-4cm}
      \subfloat{%
        \includegraphics[scale=0.3]{../cumulative_variance_graysalce.pdf} 
@@ -138,11 +138,11 @@ When using the grayscale features the execution time required to compute the PCA
     \includegraphics[scale=0.3]{../cumulative_variance_grb.pdf} 
      }
      \centering
-     \caption{Cumulative variance explaind by the principal components: the figure on the left concerns grayscale feature, the figure on the right concerns rgb features}
-      \end{adjustwidth}
+     \caption{Cumulative variance explaind by the principal components: the figure on the left concerns grayscale feature, the figure on the right concerns rgb features}  \label{variance}
+      \end{adjustwidth} 
    \end{figure}
 
-\noindent As figure \ref{variance} show, in both cases, using 150 is enough to explain all the variance in the data. However, having fixed the number of compunents, rgb components explain less variance than the grayscale components. To compare and analyze the performance of the learning algorithms the following set of principal components $\{3,10,50,100,150\}$ are used. The rationale behind this choice is to select the number of components that should give the best result having at the same time a fast execution time. \\
+\noindent As figure \ref{variance} show, in both cases, using 150 principal components is enough to explain all the variance in the data. However, having fixed the number of compunents, rgb components explain less variance than the grayscale components. To compare and analyze the performance of the learning algorithms the following set of principal components $\{3,10,50,100,150\}$ are used. The rationale behind this choice is to select the number of components that should give the best result having at the same time a fast execution time. \\
  
 \subsection{Baseline and knn}
 The k-nearest neighbours (knn) algorithm seems to be an appropriate choice to define a baseline because it is known to be one of the most efficient classification algorithm, even if it is very simple. Indeed, the knn classifies a test point with the labels of the closest training point. Moreover, in image classification it seems to perform quite as well as more sophisticated algorithms such as support vector machines. \cite{knnresults} \\
@@ -151,13 +151,13 @@ To evaluate the performace of the knn and the other algorithms, the most natural
 \text{accuracy}  = \frac{\text{Number of correct predictions}}{ \text{Total number of predictions}}
 \end{equation}
 \noindent The number of neighbours (k) chosen to construct the baseline are: $1,3,7,9,11$.
-As can be seen from figure \ref{knnaccuracy}, there is no remarkable diffenrence in performace if the number of features exploited is 10 or more. On the other hand, when only three features are used the algorithm achieves lower performances. This difference is even more sharp when rgb features are involved \footnote{The figure on the left always refers to the result obtained using the grayscale features. The figure on the right refers to the result obtained using the rgb features.}, indeed the accuracy lies about 0.10 below the other accuracy lines.\\
+As can be seen from figure \ref{knnaccuracy}, there is no remarkable diffenrence in performace if the number of features exploited is 10 or more. On the other hand, when only three features are used the algorithm achieves lower performances. This difference is even more sharp when rgb features are involved\footnote{The figure on the left always refers to the result obtained using the grayscale features. The figure on the right refers to the result obtained using the rgb features.}, indeed the accuracy lies about 0.10 below the other accuracy lines.\\
 The best number of features to select is 50, since with all the possible value of k knn performs best with 50 features.\\
 If we limit our analysis, considering just the result of knn with at least 10 features 1-nn has the very best results, even if up to 7 neighbours there is no significant difference in performance.
 Overall, knn reaches a very significant accuracy: the accuracy level  when considering rgb features reach up to 0.91, while the accuracy level reached using grayscale features is about 0.82. As expected the rgb features are more reliable and are associated with better results.\\
 Overall, the best model is 1-nn with 50 features.
 
-\begin{figure}[H]   \label{knnaccuracy}
+\begin{figure}[H] 
   \begin{adjustwidth}{-4cm}{-4cm}
      \subfloat{%
        \includegraphics[scale=0.35]{../knn_accuracy_grayscale.pdf}
@@ -166,11 +166,11 @@ Overall, the best model is 1-nn with 50 features.
     \includegraphics[scale=0.35]{../knn_accuracy_rgb.pdf}  
      }
      \centering
-     \caption{Test accuracy knn}
+     \caption{Test accuracy knn}  \label{knnaccuracy}
       \end{adjustwidth}
    \end{figure}
    
-\noindent The execution time of the algorithm is acceptable and does not exceed 30s. It is worth noting that the execution time, given the number of features, have just neglegible variation when the number of neighbours changes.\\
+\noindent The execution time of the algorithm is acceptable and does not exceed 30s. It is worth noticing that the execution time, given the number of features, have just neglegible variation when the number of neighbours changes.\\
 
 
 
@@ -191,11 +191,11 @@ Overall, the best model is 1-nn with 50 features.
 \noindent Overall, the baseline is very promising but hard to improve. The knn algorithm seems to be very suitable to classify images.
 
 \subsection{Support Vector Machines}
-Support vector machines are often used in image classification, in thier simplest form they are just linear classifiers. However the dataset seems to be hardly linearly separable, therefore the gaussian kernel was applied to allow generic curves to be used. The gaussian kernel is a linear combination of polynomial kernels. The gaussian kernel allows for more accurate predictions but slows down the algorithm.\\
+Support vector machines (svm) are often used in image classification, in thier simplest form they are just linear classifiers. However the dataset seems to be hardly linearly separable, therefore the gaussian kernel was applied to allow generic curves to be used. The gaussian kernel is a linear combination of polynomial kernels that allows for more accurate predictions but slows down the algorithm.\\
 The plot on the left of figure \ref{svmaccuracy} show the accuracy of the svm on the grayscale features. The svm reaches a lower accuracy with respect to the accuracy of the knn algorithm: it is less precise by 0.02/0.03. On the countrary, svm with rgb features performs as well as the knn algorithm.\\
 In both cases the best accuracy, as before, is reached when the number of features is 50.
 
-\begin{figure}[H]   \label{svmaccuracy}
+\begin{figure}[H]  
   \begin{adjustwidth}{-4cm}{-4cm}
      \subfloat{%
        \includegraphics[scale=0.3]{../svm_accuracy_grayscale.pdf}
@@ -204,13 +204,13 @@ In both cases the best accuracy, as before, is reached when the number of featur
     \includegraphics[scale=0.3]{../svm_accuracy_rgb.pdf}  
      }
      \centering
-     \caption{Test accuracy svm}
+     \caption{Test accuracy svm} \label{svmaccuracy}
       \end{adjustwidth}
    \end{figure}
 
-\noindent The execution time of the svm is way higher than the execution time of the knn, however it remains a reasonable execution time.
+\noindent The execution time of the svm is way higher than the execution time of the knn, however it remains reasonable as figure \ref{svm time} shows.
    
-\begin{figure}[H]  
+\begin{figure}[H] 
   \begin{adjustwidth}{-4cm}{-4cm}
      \subfloat{%
        \includegraphics[scale=0.3]{../svm_time_grayscale.pdf}
@@ -219,21 +219,21 @@ In both cases the best accuracy, as before, is reached when the number of featur
     \includegraphics[scale=0.3]{../svm_time_rgb.pdf}  
      }
      \centering
-     \caption{Execution time svm}
+     \caption{Execution time svm}  \label{svm time} 
       \end{adjustwidth}
    \end{figure}
-\noindent Overall, the svm does not improve the result defined in the baseline that remains still very significant. Only a negliglible result is reached when using the rgb features. \\
+\noindent Overall, the svm does not improve the result defined in the baseline that remains still very significant. Only a negliglible improvement is reached when using the rgb features. \\
 
 
 \subsection{Convolutional neural network}
-Convolutional neural netwoks (CNN) are deep learning neaural networks suitable for image classificatIOon. Deep learning algorithms are a class of machine learning algorithms that uses multiple layers to extract higher level features. The main reason to prefer deep learning techniques is that many layers with fewer weights are more flexible and precise in classification than neural networs with many weights and fewer layers.    
-Convolutional layers optimize a matrix known as filter which is applied to each portion of the data.
-The pooling layer just extract a reduced representation of the data computed in the convolutional layer. In the convolutional layer the dimensionality of the data is reduced by selecting a subset of the image and extracting a single value from the matrix. Usually the highest, mean or minimum value are extracted. This process can be repeated by stacking convolutional and pooling layers.\\
-Upon the convolutional and pooling layer some fully connceted layers are stacked. The purpose of these layers is to compute the probability that the input image belongs to each class.The last layer of the net has a number of neurons equal to the number of class used and the output is computed exploiting the \textit{softmax} function that provides a probability distribution. The predicted class is the class having the hights probability. \\
+Convolutional neural netwoks (CNN) are deep learning neural networks suitable for image classification because they can recognize translational invariant features. Deep learning algorithms are a class of machine learning algorithms that uses multiple layers to extract higher level features. A convolutional neural network consists in a stack of convolutional and pooling layers followed by some dense layers. \\
+Convolutional layers optimize the matrices known as filters that are applied to each portion of the data. It is worth noticing that the name convolutional neural network origins form the filtering operation known as discrete convolution in mathematics. \\ 
+The pooling layer just extracts a reduced representation of the data computed in the convolutional layer. Indeed, in this layer the dimensionality of the data is reduced by selecting a subset of the image and extracting a single value from each subset; usually the highest, mean or minimum value are extracted. This process can be repeated by stacking convolutional and pooling layers. Upon the convolutional and pooling layer some fully connceted layers are stacked. The purpose of these layers is to compute the probability that the input image belongs to each class. The last layer of the net has a number of neurons equal to the number of class used and the output is computed exploiting the \textit{softmax} function that provides a probability distribution. The predicted class is the class having the hights probability. \\
+The main reason to prefer deep learning techniques is that many layers with fewer weights are more flexible and precise in classification than neural networks with many weights and fewer layers. It is also computationally efficient because it optimizes just the small filters in the convolutional layers and just few dense layers whose optimization is computationally more expensive. \\
 The implementation of the CNNs relies on the \textit{Keras} and \textit{tensorflow} API.\\
-Figure \ref{cnn} represents plot the training accuracy of the cnn with respect to the number of epochs of the training process. The training accuracy reachs as high as 0.99 while the test accuracy is a bit lower for both grayscale and rgb features.
+Figure \ref{cnn} shows the training accuracy of the cnn with respect to the number of epochs of the training process. The training accuracy reachs as high as 0.99 while the test accuracy is a bit lower for both grayscale and rgb features.
 When grayscale features are involved the test accuracy of the cnn is about 0.90, while is 0.94 when considering rgb features.
-\begin{figure}[H]  \label{cnn} 
+\begin{figure}[H] 
   \begin{adjustwidth}{-4cm}{-4cm}
      \subfloat{%
       \includegraphics[scale=0.3]{../cnn_grayscale.png} 
@@ -242,36 +242,36 @@ When grayscale features are involved the test accuracy of the cnn is about 0.90,
  \includegraphics[scale=0.3]{../cnn_rgb.png} 
      }
      \centering
-     \caption{Execution time svm}
+     \caption{Training CNN accuracy} \label{cnn} 
       \end{adjustwidth}
    \end{figure}
 \noindent The training time of both the nets is about 1 minute.\\
 Overall, the CNNs seem to be the best model to classify images.
 \section{Conclusions}
-This work aims to analyze the performance of well-known classification algorithms: K-nearest neighbour, support vector machines and convolutional neural networks. The dataset chosen is
-Theory suggests that SVM should have more predictive power and accuracy. However, despite its simplicity KNN matches and even outperform SVM. In this work we confirmed what other researches found out: overall, CNN have the best performance and rgb are very significant features even if they are easy to extract.  \\
+This work aims to analyze the performance of well-known classification algorithms: K-nearest neighbour,support vector machines and convolutional neural networks on \textit{Fruit 360} dataset. One of the most interesting evidence emergd from the analysis concens KNN and SVM:
+theory suggests that SVM should have more predictive power and accuracy than KNN. However, despite its simplicity KNN matches and even outperforms SVM. Moreover, in this work we confirmed what other researches found out: overall, CNN have the best performance and rgb features are very significant features even if they are easy to extract.\\
 Table \ref{results} provides the reader an overview of the results. For each algorithm and for each feature the table presents the best accuracy.
 The accuracy rate achieved using rgb features are higher than all the accuracy rate achieved with grayscale features. \\
-\begin{table}[H] \label{results}
+\begin{table}[H]
 \centering
  \begin{tabular}{|c|c|c|c|} 
  \hline
-  Features & 1-NN & SVM & CNN\\
+  Algorithms & 1-NN & SVM & CNN\\
  \hline
  Grayscale&0.86&0.84&0.90 \\
  \hline
  Rgr&0.91& 0.92 & 0.94  \\
  \hline
 \end{tabular}
-\caption{Best accuracy scores}
+\caption{Best accuracy scores} \label{results}
 \end{table}
 
-\noindent The comparison of the resuslt in this work with the state-of-art in fruit and vegetable classification relies on the results presented in \cite{review}. The comparison is not straightforward because most of the letterature focuses on one vs all classification while this work handles multiclass classification. Mixed fruit classiffication reported in literature  exploits a lower number of examples. The best results using mixed fruits has an accuracy of 0.98 with k-mean clustering. The result of the project is 4\% precise even of the comparison is not exact. 
+\noindent The comparison of the resuslt in this work with the state-of-art in fruit and vegetable classification relies on the results presented in \cite{review}. The comparison is not straightforward because most of the letterature focuses on one vs all classification while this work handles multiclass classification. Moreover, mixed fruit classiffication reported in literature  exploits a lower number of examples. The best results using mixed fruits has an accuracy of 0.98 with k-mean clustering. The result of the project is 4\% more precise even if the comparison is not exact. 
 Considering other results the project reports an accuracy rate about the mean of other less recent papers.
 Nevertheless, the objective of the project were fulfilled:
 \begin{itemize}
 \item Grayscale features are suffiencent to achieve a remarkable accuracy 0.901
-\item Rgb features increas ethe best accuracy rate by 0.04
+\item Rgb features increas the best accuracy rate by 0.04
 \item Despite its semplicity, Knn has a remarkable accuracy rate. 
 \item Simplicity is prerequisite for reliability. Edsger Dijkstra
 \end{itemize}
