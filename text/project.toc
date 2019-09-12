@@ -7,5 +7,9 @@
 \contentsline {subsection}{\numberline {3.2}Baseline and knn}{4}
 \contentsline {subsection}{\numberline {3.3}Support Vector Machines}{7}
 \contentsline {subsection}{\numberline {3.4}Convolutional neural network}{9}
-\contentsline {section}{\numberline {4}Conclusions}{10}
-\contentsline {section}{\numberline {5}Appendix: Code}{12}
+\contentsline {section}{\numberline {4}Mathematical background}{10}
+\contentsline {subsection}{\numberline {4.1}Principal component analysis}{10}
+\contentsline {subsection}{\numberline {4.2}KNN}{11}
+\contentsline {subsection}{\numberline {4.3}SVM}{11}
+\contentsline {section}{\numberline {5}Conclusions}{12}
+\contentsline {section}{\numberline {6}Appendix: Code}{14}

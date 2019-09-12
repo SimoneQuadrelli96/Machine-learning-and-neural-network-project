@@ -8,6 +8,8 @@
 \usepackage{changepage}
 \usepackage{amsmath}
 \usepackage[driver=pdftex]{geometry}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
 
 
 
@@ -242,6 +244,66 @@ When grayscale features are involved the test accuracy of the CNN is about 0.90,
    \end{figure}
 \noindent The training time of both the nets is about 1 minute and the computation of the prediction requires about 30 seconds. Therefore CNN are faster than some instances of SVM but slower than the KNN.\\
 Overall, the CNNs seem to be the best model to classify images.
+\section{Mathematical background}
+\subsection{Principal component analysis}
+This section introduces the mathematical background conserning the Principal component analysis (PCA).\\
+The principal components of a set of data in $R^n$ provide a sequence of best linear approximations to that data in $R^d$, where $d < n$.
+The principal components are computed solving an optimization problem than consists in finding two matrices: the compression matrix $W^{n \times d}$ and  the recovery matrix $U^{d \times n}$. The former matrix maps the features vector from $R^n$ in $R^d$, the latter recovers approximately the origianl data mapping from $R^d$ in $R^n$.
+The matrices can be computed solving following optimization problem:
+\begin{equation}
+\argmin_{W \in R^{n \times d}  , \, U \in R^{n \times d}} \sum_{i = 1}^m ||\textbf{x}_i -UW \textbf{x}_i ||_2^2
+\end{equation}
+The optimization problem can be rewritten as:
+\begin{equation}
+\argmin_{U \in R^{d \times n}: \, U^TU=I} \sum_{i = 1}^m ||\textbf{x}_i -UU^T \textbf{x}_i ||_2^2
+\end{equation}
+because it was shown that $U$ and $W$ are orthonormal and $W = U^T$. \\
+It is possible to apply the equaity
+\begin{equation}
+||\textbf{x}_i -UU^T \textbf{x}_i ||^2 = ||x||^2 - \text{trace}(U^T\textbf{x}\textbf{x}^tU)
+\end{equation}
+to the objective function to come up with this new optimization problem
+\begin{equation}
+\argmax_{U \in R^{d \times n}: \, U^TU=I} \text{trace} (U^T\sum_{i=1}^m\textbf{x}_i\textbf{x}_i^T U)
+\end{equation}
+whose soluton is the matrix $U$. The columns of $U$ are the eigenvectors of $A = \sum_{i=1}^m\textbf{x}_i\textbf{x}_i^T$ known as principal components.
+
+\subsection{KNN}
+1-NN is an algorithm that generates a partition of the space. Each partition, called Voronoi cell, whose center is a training point is the locus of points clores to the center than to all the other training points. The algorithm just computes the distance between the test point and all the training points.
+Let $\delta$ be a distance function such that 
+\begin{equation}
+\delta(\textbf{x},\textbf{y}) = \sqrt{\sum_{i=1}^d(\textbf{x}_i-\textbf{y}_i)^2}
+\end{equation}
+where $\textbf{x}, \, \textbf{y} \in R^d$.
+The returns as prediction the class of the closest point. The process can be further generalize considering the k neighbours and assign the label voting by majority.
+
+\subsection{SVM}
+This section provides an overview of Support Vector Machines, in particular we focus on SVM for binary calssification since it allows math to be simpler and clearer. However, multiclass SVM are built using binary SVMs.  The most common technique in practice has been to build  a set one-versus-rest classifiers and to choose the class which classifies the test datum with greatest margin. Another strategy is to build a set of one-versus-one classifiers, and to choose the class that is selected by the most classifiers. \cite{svm}
+\\
+Support Vector Machines (SVM) is a model that determines the separating hyperplane with the maximum margin\footnote{margin(w) = $\min_{t=1,..,m} y_t\textbf{w}^T\textbf{x}_t$} between the closest positive labels and negative labels. The hyperplane found in such a way should reduce the probability of misclassification for points with different labels that are close to one another and close to the hyperplane. \\
+On a linearly separable data, the SVM solves the following problem:
+\begin{equation}
+\begin{split}
+   &   \textbf{w} \mbox{*} = \argmin_{\textbf{w} \in \mathcal{R}^d} \frac{1}{2} {\lVert \textbf{w} \rVert}^2 \\
+   & s.t.\; y_i\textbf{w}^{T}\textbf{x}_i \geq 1 \; \forall i \in \{1, ...,m\} 
+\end{split}
+\end{equation}
+However data are hardly linearly separable, therefore SVM can be generalized to solve the problem on non-linearly separable data as follows:
+\begin{equation}
+      \textbf{w} \mbox{*} = \argmin_{\textbf{w} \in \mathcal{R}^d} \bigg( \frac{1}{m}\sum_{i=1}^m h_i(\textbf{w}) + \frac{\lambda}{2} {\lVert \textbf{w} \rVert}^2 \bigg)
+\end{equation}
+where $h(\textbf{w})$ is the hinge loss.
+To further increase the classification capability of a SVM kernel functions can be applied. The gaussian kernel was applied in the implementation of SVM.
+The gaussian kernel can be defined as:
+\begin{equation}
+K_{\gamma}(\textbf{x},\textbf{x}') = \psi(\textbf{x}) \psi(\textbf{x}')^T  = \text{exp} \bigg( - \frac{1}{2 \gamma} ||x - x' ||^2 \bigg) \;\; \gamma > 0
+\end{equation}
+Therefore, the objective to minimize becomes
+\begin{equation}
+      \textbf{w} \mbox{*} = \argmin_{\textbf{w} \in \mathcal{R}^d} \bigg( \frac{1}{m}\sum_{i=1}^m \max\{0,1-y\textbf{w} \psi(\textbf{x}_i)^T\} + \frac{\lambda}{2} {\lVert \textbf{w} \rVert}^2 \bigg)
+\end{equation}
+where $y$ is the label of the data.
+
 
 \section{Conclusions}
 This work aims to analyze the performance of well-known classification algorithms: k-nearest neighbour, support vector machines and convolutional neural networks on \textit{Fruit 360} dataset.\\
@@ -662,6 +724,9 @@ model %>% evaluate(x_test, y_test)
 
 \bibitem{knnresults}
 \textit{Sandeep Kumar, Zeeshan Khan, Anurag jain, A Review of Content Based Image Classification using Machine Learning Approach, International Journal of Advanced Computer Research (ISSN (print): 2249-7277 ISSN (online): 2277-7970) Volume-2 Number-3 Issue-5 September-2012}
+
+\bibitem{svm}
+\textit{Christopher D. Manning, Prabhakar Raghavan and Hinrich Schütze, Introduction to Information Retrieval, Cambridge University Press. 2008.}
 
 \end{thebibliography} 
 \end{document}
