@@ -1,15 +1,16 @@
 \contentsline {section}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {2}Dataset and Features}{2}
-\contentsline {subsection}{\numberline {2.1}RGB colour space}{2}
+\contentsline {section}{\numberline {2}Dataset and Features}{1}
+\contentsline {subsection}{\numberline {2.1}Rgb colour space}{2}
 \contentsline {subsection}{\numberline {2.2}Grayscale colour space}{2}
 \contentsline {section}{\numberline {3}Data analysis}{3}
 \contentsline {subsection}{\numberline {3.1}Feature extraction and dimensionality reduction}{3}
-\contentsline {subsection}{\numberline {3.2}Baseline and knn}{4}
-\contentsline {subsection}{\numberline {3.3}Support Vector Machines}{7}
-\contentsline {subsection}{\numberline {3.4}Convolutional neural network}{9}
-\contentsline {section}{\numberline {4}Mathematical background}{10}
-\contentsline {subsection}{\numberline {4.1}Principal component analysis}{10}
-\contentsline {subsection}{\numberline {4.2}KNN}{11}
-\contentsline {subsection}{\numberline {4.3}SVM}{11}
+\contentsline {subsection}{\numberline {3.2}Baseline and KNN}{4}
+\contentsline {subsection}{\numberline {3.3}Support Vector Machines}{6}
+\contentsline {subsection}{\numberline {3.4}Convolutional neural network}{8}
+\contentsline {section}{\numberline {4}Mathematical background}{9}
+\contentsline {subsection}{\numberline {4.1}Principal component analysis}{9}
+\contentsline {subsection}{\numberline {4.2}KNN}{10}
+\contentsline {subsection}{\numberline {4.3}SVM}{10}
+\contentsline {subsection}{\numberline {4.4}CNN}{11}
 \contentsline {section}{\numberline {5}Conclusions}{12}
-\contentsline {section}{\numberline {6}Appendix: Code}{14}
+\contentsline {section}{\numberline {6}Appendix: Code}{13}
