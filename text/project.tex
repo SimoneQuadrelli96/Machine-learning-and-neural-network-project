@@ -57,7 +57,7 @@
 \section*{Abstract}
 The aim of the project is to investigate the ability of K-nearest neighbours (KNN), support vector machines (SVM) and convolutional neural networks (CNN) to classify images of fruits and vegetables using as feature vectors the images rgb and grayscale representation.\\
 The analysis develops following some major steps: first features are extracted, then feature reduction is performed. Hence, KNN and SVM performance are computed with different parameters and number of features. In the end, CNN are applied to the whole features. \\
-The most remarkable findings concern CNNs, which perform the best, however KNN reaches a surprisingly high accuracy. It is also worth noticing that  even if grayscale features are very useful, even if rgb features are more meaningful.
+The most remarkable findings concern CNNs, which perform the best, however KNN reaches a surprisingly high accuracy. It is also worth noticing that  even if grayscale features are very useful, rgb features are more meaningful.
 \section{Introduction}
 The objective of this project is to classify a variety of fruits and vegetables whose images are stored in a recently released dataset.\\
 Fruit and vegetable classification is a challenging task; indeed, there are two different kind of problems that must be overcome: vegetables and fruits within the same class can differ in shape and colour due to maturity and growth. On the countrary, vegetables and fruits in different classes, such as red apples or grapes, may be very similar both in textures and in colours. 
@@ -68,20 +68,20 @@ The projects analyzes the classification performance of three machine learning a
 The are two different kind of features that were extracted to feed the algorithms: the grayscale and the rgb representation of the images.\\\\
 The objective of the project are:
 \begin{enumerate}
-\item Analyze the accuracy result achieved with grayscale features
-\item Study the improvement in performance induced by rgb features
-\item Compare the performance of KNN with that of more sophisticated algorithms
+\item Analyze the accuracy result achieved with grayscale features.
+\item Study the improvement in performance induced by rgb features.
+\item Compare the performance of KNN with that of more sophisticated algorithms.
 \end{enumerate}
 
 \section{Dataset and Features}
 The analyzed dataset, known as \textit{Fruits 360}, was originally published in 2017 by Horea Muresan and Mihai Oltean to address fruit and vegetable classification \cite{dataset}. The existence of either too small datasets or too low-quality dataset was the most compelling problem.  On the countrary, this dataset provides more that 70000 images of 114 different fruits and vegetables. Each image has a definition of 100 $\times$ 100 pixels. To further increase the reliability of the results, the authors decided to enrich it with images of rotated fruits and vegetables. However those images make the training process much harder.\\
 As the authors explain, the dataset was produced as follows: fruits and vegetables were planted in the shaft of a low speed motor (3 rpm) and a short movie of 20 seconds was recorded. However, due to the variations in the lighting conditions, the background was not uniform and a dedicated algorithm was exploited to extract the fruit from the background. Hence, the images were of such high quality that no pre-processing was required.
 It is also worth noticing that the dataset was already split in train and test set, therefore no further splitting was required.\\
-Fruits and vegetables have several distinct visual characteristics that can be extracted from their pictures. Colour, shape, size and texture are the most commonly used features\footnote{Features are the characteristics of an object that can distinguish it from other objects} in image classification. Among all the possible features that can be extracted from an image, colour features play a key role in fruit and vegetable classification. Indeed, they seem to be suitable for the problem and their computation is very fast and efficient \cite{review}. Thus, the project focuses on the grayscale and rgb representation of the images. \\
-The following lines introduce the reader to some concept of colour spaces and colour representation.
-Colour spaces are a specific organization of colours the allows to reproduce the representation of colours and two different colour spaces were exploited in this project: grayscale and the rgb.
+Fruits and vegetables have several distinct visual characteristics that can be extracted from their pictures. Colour, shape, size and texture are the most commonly used features\footnote{Features are the characteristics of an object that can distinguish it from other objects.} in image classification. Among all the possible features that can be extracted from an image, colour features play a key role in fruit and vegetable classification. Indeed, they seem to be suitable for the problem and their computation is very fast and efficient \cite{review}. Thus, the project focuses on the grayscale and rgb representation of the images. \\
+The following lines introduce the reader to some concepts of colour spaces and colour representation.
+Colour spaces are a specific organization of fundamental colours the allows to reproduce a wide variety of colours and shades of gray. Two different colour spaces were exploited in this project: grayscale and rgb.
 \subsection{Rgb colour space}
-The rgb colour model is an additive colour model, meaning that red, green and blue are added together to reproduce a wide array of colors. A color in the rgb colour model is described by indicating how much of the red, green, and blue is included. Therefore, the colour of a pixel is expressed as an rgb triplet (R,G,B) whose components can vary from 0 to 255, since each channel is represented by a byte.
+The rgb colour model is an additive colour model, meaning that red, green and blue are added together to reproduce a wide array of colors. A color in the rgb colour model is described by indicating how much the red, green, and blue it includes. Therefore, the colour of a pixel is expressed as an rgb triplet (R,G,B) whose components can vary from 0 to 255, since each channel is represented by a byte.
 
 \subsection{Grayscale colour space}
 Since the dataset contains rgb images, it was necessary to extract a grayscale representation of the pixels to be used as features. Notice that in grayscale representation each pixel is represented by a byte, meaning that the possible values it can be in range from 0 to 255. \\
@@ -115,7 +115,7 @@ The procedure described in the section is the same for both the grayscale featur
 \subsection{Feature extraction and dimensionality reduction}
 The first major step in the analysis is the data extraction and the computation of the data matrix and the vector of the labels concerning the following fruits: \textit{Apple Golden 1}, \textit{Apple Golden 2}, \textit{Apple Red 2}, \textit{Apple Red 1}, \textit{Banana}, \textit{Apricot}, \textit{Blueberry}. \\
 As previously stated, the dataset contains 100x100 pixels images, therefore the data matrix with rgb features has 409440000 elements. Bearing that in mind, the images are rescaled to 50 $\times$ 50 pixels to reduce the computational complexity of the problem.  The feature vector of each image is extracted by the functions of the library \textit{imager}. Once all the data vectors are extracted, a data matrix is created whose rows contain the linearized representation of the image. At the same time a vector of labels is computed.\\
-Most learning algorithms are exponentially slow in the number of the feature or at least significantly slow down as the number of feature increases. Furthermore, it is reasonable to believe that many of the pixels are useless since they are just part of the background. As a result, Principal component analysis (PCA) is exploited to reduce the dimensionality of the data and select the most promising features. PCA was chosen because it is one of the most common technique to reduce the dimensionality of the data, because it is very efficient and because many libraries implement it. It computes all the principal components that can be seen as the axis along which data differ the most.\\
+Most learning algorithms are exponentially slow in the number of the feature or at least significantly slow down as the number of feature increases. Furthermore, it is reasonable to believe that many of the pixels are useless since they are just part of the background. As a result, Principal component analysis (PCA) is exploited to reduce the dimensionality of the data and select the most promising features. PCA was chosen because it is one of the most common technique to reduce the dimensionality of the data, since it is very efficient and many libraries implement it. It computes all the principal components that can be seen as the axis along which data differ the most.\\
 It is also worth noticing that before applying PCA data points $x$ are standardized in the following way:
 \begin{equation}
  \frac{x - \mu}{\sigma}
@@ -143,10 +143,10 @@ To compare and analyze the performance of the learning algorithms the following 
 The k-nearest neighbours  algorithm seems to be an appropriate choice to define a baseline because it is known to be one of the most efficient classification algorithm, even if it is very simple. Indeed, the KNN classifies a test point with the labels of the closest training point. Moreover, in image classification it seems to perform quite as well as more sophisticated algorithms such as support vector machines. \cite{knnresults} \\
 To evaluate the performance of KNN and the other algorithms, the most natural choice is the accuracy, defined as:
 \begin{equation}
-\text{accuracy}  = \frac{\text{Number of correct predictions}}{ \text{Total number of predictions}}
+\text{accuracy}  = \frac{\text{Number of correct predictions}}{ \text{Total number of predictions}}.
 \end{equation}
 \noindent The number of neighbours (k) chosen to construct the baseline are: $1,3,7,9,11$.
-As can be seen from figure \ref{knnaccuracy}, there is no remarkable difference in performance if the number of features exploited is 10 or more. On the other hand, when only three features are used the algorithm achieves lower performances. This difference is even more sharp when rgb features are involved\footnote{The figure on the left always refers to the result obtained using the grayscale features. The figure on the right refers to the result obtained using the rgb features}, indeed the accuracy lies about 0.10 below the other accuracy lines.\\
+As can be seen from figure \ref{knnaccuracy}, there is no remarkable difference in performance if the number of features exploited is 10 or more. On the other hand, when only three features are used the algorithm achieves lower performances. This difference is even more sharp when rgb features are involved\footnote{The figure on the left always refers to the result obtained using the grayscale features. The figure on the right refers to the result obtained using the rgb features.}, indeed the accuracy lies about 0.10 below the other accuracy lines.\\
 The best number of features to select is 50, since with all the possible value of k KNN performs best with 50 features.\\
 If we limit our analysis, considering just the result of KNN with at least 10 features 1-NN has the very best results, even if up to 7 neighbours there is no significant difference in performance.
 Overall, KNN reaches a very significant accuracy: the accuracy level when considering rgb features reach up to 0.91, while the accuracy level reached using grayscale features is about 0.82. As expected the rgb features are more reliable and are associated with better results.\\
@@ -183,7 +183,7 @@ Overall, the best model is 1-NN with 50 features.
 \noindent Overall, the baseline is very promising but hard to improve. Indeed, as suggested by the literature, KNN seems to be very suitable to classify images.
 
 \subsection{Support Vector Machines}
-Support vector machines (svm) are often used in image classification, even if in their simplest form they are just linear classifiers. However the dataset seems  hardly linearly separable, thus the gaussian kernel was applied to allow generic curves to be used. The gaussian kernel is a linear combination of polynomial kernels that allows for more accurate predictions but slows down the algorithm.\\
+Support vector machines (SVM) are often used in image classification, even if in their simplest form they are just linear classifiers. However the dataset seems  hardly linearly separable, thus the gaussian kernel was applied to allow generic curves to be used. The gaussian kernel is a linear combination of polynomial kernels that allows for more accurate predictions but slows down the algorithm.\\
 The plot on the left of figure \ref{svmaccuracy} shows the accuracy of the SVM on the grayscale features. The SVM reaches a lower accuracy with respect to the accuracy of KNN: it is less precise by 0.02/0.03. On the contrary, SVM with rgb features performs as well as the KNN algorithm.\\
 In both cases the best accuracy, as before, is reached when the number of features is 50.
 
@@ -218,8 +218,8 @@ In both cases the best accuracy, as before, is reached when the number of featur
 
 
 \subsection{Convolutional neural network}
-Deep learning algorithms are a class of machine learning algorithms often used to solve classification problems by exploiting multiple layers to extract higher level features. Among the various deep learning algorithms convolutional neural networks (CNN) are suitable for image classification since they can recognize translation invariant features. They are built stacking some convolutional and pooling layers over which lay some dense layers\footnote{Section \ref{sec:cnn} provides a wider explanation of CNNs}. \\
-The implementation of the CNNs relies on the \textit{Keras} and \textit{tensorflow} API, they both are very famous and widespread libraries provided by Google that underlay many famous software like DeepDream\\
+Deep learning algorithms are a class of machine learning algorithms often used to solve classification problems by exploiting multiple layers to extract higher level features. They are built stacking some convolutional and pooling layers over which lay some dense layers\footnote{Section \ref{sec:cnn} provides a wider explanation of CNNs}. Among the various deep learning algorithms, convolutional neural networks (CNN) are suitable for image classification since they can recognize translation invariant features. \\
+The implementation of the CNNs relies on the \textit{Keras} and \textit{tensorflow} API, they both are very famous and widespread libraries provided by Google that underlay many famous software like DeepDream.\\
 Figure \ref{cnn} shows the training accuracy of the CNN with respect to the number of epochs in the training process. The training accuracy reaches as high as 0.99 while the test accuracy is a bit lower for both grayscale and rgb features.
 When grayscale features are involved the test accuracy of the CNN is about 0.90, while is 0.94 when considering rgb features.
 \begin{figure}[H] 
@@ -243,7 +243,7 @@ The principal components of a set of data in $R^n$ provide a sequence of best li
 The principal components are computed solving an optimization problem than consists in finding two matrices: the compression matrix $W^{n \times d}$ and  the recovery matrix $U^{d \times n}$. The former matrix maps the features vector from $R^n$ in $R^d$, the latter recovers approximately the origianl data mapping from $R^d$ in $R^n$.
 The matrices can be computed solving following optimization problem:
 \begin{equation}
-\argmin_{W \in R^{n \times d}  , \, U \in R^{n \times d}} \sum_{i = 1}^m ||\textbf{x}_i -UW \textbf{x}_i ||_2^2
+\argmin_{W \in R^{n \times d}  , \, U \in R^{n \times d}} \sum_{i = 1}^m ||\textbf{x}_i -UW \textbf{x}_i ||_2^2.
 \end{equation}
 The optimization problem can be rewritten as:
 \begin{equation}
@@ -252,7 +252,7 @@ The optimization problem can be rewritten as:
 because it was shown that $U$ and $W$ are orthonormal and $W = U^T$. \\
 It is possible to apply the equality
 \begin{equation}
-||\textbf{x}_i -UU^T \textbf{x}_i ||^2 = ||x||^2 - \text{trace}(U^T\textbf{x}\textbf{x}^tU)
+||\textbf{x}_i -UU^T \textbf{x}_i ||^2 = ||x||^2 - \text{trace}(U^T\textbf{x}\textbf{x}^TU)
 \end{equation}
 to the objective function to come up with this new optimization problem
 \begin{equation}
@@ -268,9 +268,14 @@ KNN is algorithm that relies on a simple assumpltion: similar data vectors belon
 where $\textbf{x}, \, \textbf{y} \in R^d$. \\
 The algorithm just computes the distance between the test point and all the training points, then it selects the label of the first k closest points. The predicted class is the one with the highest frequence among the k closest points. \\
 \subsection{SVM}
-This section provides an overview of Support Vector Machines, in particular we focus on SVM for binary calssification since it allows math to be simpler and clearer. However, multiclass SVM are built using binary SVMs.  The most common technique in practice has been to build  a set one-versus-rest classifiers and to choose the class which classifies the test datum with greatest margin. Another strategy is to build a set of one-versus-one classifiers, and to choose the class that is selected by the most classifiers. \cite{svm}
+This section provides an overview of Support Vector Machines, in particular we focus on SVM for binary calssification since it allows math to be simpler and clearer. However, multiclass SVM are built using binary SVMs. The most common technique in practice has been to build  a set one-versus-rest classifiers and to choose the class which classifies the test with greatest margin. Another strategy is to build a set of one-versus-one classifiers, and to choose the class that is selected by the most classifiers. \cite{svm}
 \\
-Support Vector Machines (SVM) is a model that determines the separating hyperplane with the maximum margin\footnote{margin(w) = $\min_{t=1,..,m} y_t\textbf{w}^T\textbf{x}_t$} between the closest positive labels and negative labels. The hyperplane found in such a way should reduce the probability of misclassification for points with different labels that are close to one another and close to the hyperplane. \\
+Support Vector Machines is a model that determines the separating hyperplane $w$ with the maximum margin between the closest positive labels and negative labels. The margin can be defined as:
+\begin{equation}
+\text{margin(w)} = \min_{i=1,..,m} y_i\textbf{w}^T\textbf{x}_i
+\end{equation}
+where $y$ is the class, $\textbf{x}$ is the data vector and $m$ is the number of vectors used to train the model. \\
+The hyperplane found in such a way should reduce the probability of misclassification for points with different labels that are close to one another and close to the hyperplane. \\
 On a linearly separable data, the SVM solves the following problem:
 \begin{equation}
 \begin{split}
@@ -321,9 +326,9 @@ One of the most interesting result emerged from the analysis concenring KNN and 
 \end{table}
 \noindent It is also worth noticing that the accuracy rate achieved using rgb features are higher than all the accuracy rate achieved with grayscale features. However, these results seem to be 4\% lower than the state-of-art in fruit classification. Indeed, the best accuracy rate reached in mixed fruit classification is 0.98 as reported in \cite{review}. However, the comparison is not straightforward since the dimension of the dataset and the number of classes is different. Moreover, most of the literature focuses on one vs all classification while this work handles multiclass classification. Nevertheless, the objective of the project were fulfilled:
 \begin{enumerate}
-\item Grayscale features allows to achieve the remarkable accuracy (0.90)
-\item Rgb features provide an 0.04 improvement of the previous result
-\item Despite its semplicity, Knn has a remarkable accuracy rate (0.91)
+\item Grayscale features allows to achieve the remarkable accuracy (0.90).
+\item Rgb features provide an 0.04 improvement of the previous result.
+\item Despite its semplicity, Knn has a remarkable accuracy rate (0.91).
 \end{enumerate}
 
 \newpage
@@ -734,3 +739,5 @@ model %>% evaluate(x_test, y_test)
 
 \end{thebibliography} 
 \end{document}
+
+
