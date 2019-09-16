@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  15 SEP 2019 11:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  16 SEP 2019 10:42
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -352,16 +352,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 62--70
 File: ../cumulative_variance_graysalce.pdf Graphic file (type pdf)
 <use ../cumulative_variance_graysalce.pdf>
 Package pdftex.def Info: ../cumulative_variance_graysalce.pdf  used on input li
-ne 130.
+ne 129.
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
 <../cumulative_variance_grb.pdf, id=30, 597.23125pt x 844.15375pt>
 File: ../cumulative_variance_grb.pdf Graphic file (type pdf)
 <use ../cumulative_variance_grb.pdf>
-Package pdftex.def Info: ../cumulative_variance_grb.pdf  used on input line 133
+Package pdftex.def Info: ../cumulative_variance_grb.pdf  used on input line 132
 .
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
  [3]
-Underfull \hbox (badness 10000) in paragraph at lines 139--141
+Underfull \hbox (badness 10000) in paragraph at lines 138--140
 
  []
 
@@ -369,66 +369,66 @@ Underfull \hbox (badness 10000) in paragraph at lines 139--141
 <../knn_accuracy_grayscale.pdf, id=47, 597.23125pt x 844.15375pt>
 File: ../knn_accuracy_grayscale.pdf Graphic file (type pdf)
 <use ../knn_accuracy_grayscale.pdf>
-Package pdftex.def Info: ../knn_accuracy_grayscale.pdf  used on input line 159.
+Package pdftex.def Info: ../knn_accuracy_grayscale.pdf  used on input line 158.
 
 (pdftex.def)             Requested size: 209.03406pt x 295.45824pt.
 <../knn_accuracy_rgb.pdf, id=48, 597.23125pt x 844.15375pt>
 File: ../knn_accuracy_rgb.pdf Graphic file (type pdf)
 <use ../knn_accuracy_rgb.pdf>
-Package pdftex.def Info: ../knn_accuracy_rgb.pdf  used on input line 162.
+Package pdftex.def Info: ../knn_accuracy_rgb.pdf  used on input line 161.
 (pdftex.def)             Requested size: 209.03406pt x 295.45824pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
 <../knn_time_grayscale.pdf, id=49, 597.23125pt x 844.15375pt>
 File: ../knn_time_grayscale.pdf Graphic file (type pdf)
 <use ../knn_time_grayscale.pdf>
-Package pdftex.def Info: ../knn_time_grayscale.pdf  used on input line 174.
+Package pdftex.def Info: ../knn_time_grayscale.pdf  used on input line 173.
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
 <../knn_time_rgb.pdf, id=50, 597.23125pt x 844.15375pt>
 File: ../knn_time_rgb.pdf Graphic file (type pdf)
 <use ../knn_time_rgb.pdf>
-Package pdftex.def Info: ../knn_time_rgb.pdf  used on input line 177.
+Package pdftex.def Info: ../knn_time_rgb.pdf  used on input line 176.
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
 [5 <../knn_accuracy_grayscale.pdf> <../knn_accuracy_rgb.pdf>]
 <../svm_accuracy_grayscale.pdf, id=67, 597.23125pt x 844.15375pt>
 File: ../svm_accuracy_grayscale.pdf Graphic file (type pdf)
 <use ../svm_accuracy_grayscale.pdf>
-Package pdftex.def Info: ../svm_accuracy_grayscale.pdf  used on input line 194.
+Package pdftex.def Info: ../svm_accuracy_grayscale.pdf  used on input line 193.
 
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
 <../svm_accuracy_rgb.pdf, id=68, 597.23125pt x 844.15375pt>
 File: ../svm_accuracy_rgb.pdf Graphic file (type pdf)
 <use ../svm_accuracy_rgb.pdf>
-Package pdftex.def Info: ../svm_accuracy_rgb.pdf  used on input line 197.
+Package pdftex.def Info: ../svm_accuracy_rgb.pdf  used on input line 196.
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
  [6 <../knn_time_grayscale.pdf> <../knn_time_rgb.pdf>]
 <../svm_time_grayscale.pdf, id=84, 597.23125pt x 844.15375pt>
 File: ../svm_time_grayscale.pdf Graphic file (type pdf)
 <use ../svm_time_grayscale.pdf>
-Package pdftex.def Info: ../svm_time_grayscale.pdf  used on input line 209.
+Package pdftex.def Info: ../svm_time_grayscale.pdf  used on input line 208.
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
 <../svm_time_rgb.pdf, id=85, 597.23125pt x 844.15375pt>
 File: ../svm_time_rgb.pdf Graphic file (type pdf)
 <use ../svm_time_rgb.pdf>
-Package pdftex.def Info: ../svm_time_rgb.pdf  used on input line 212.
+Package pdftex.def Info: ../svm_time_rgb.pdf  used on input line 211.
 (pdftex.def)             Requested size: 179.17075pt x 253.24808pt.
  [7 <../svm_accuracy_grayscale.pdf> <../svm_accuracy_rgb.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
 
  []
 
 <../cnn_grayscale.png, id=101, 637.38126pt x 556.0775pt>
 File: ../cnn_grayscale.png Graphic file (type png)
 <use ../cnn_grayscale.png>
-Package pdftex.def Info: ../cnn_grayscale.png  used on input line 229.
+Package pdftex.def Info: ../cnn_grayscale.png  used on input line 228.
 (pdftex.def)             Requested size: 191.21585pt x 166.82454pt.
 <../cnn_rgb.png, id=103, 637.38126pt x 556.0775pt>
 File: ../cnn_rgb.png Graphic file (type png)
 <use ../cnn_rgb.png>
-Package pdftex.def Info: ../cnn_rgb.png  used on input line 232.
+Package pdftex.def Info: ../cnn_rgb.png  used on input line 231.
 (pdftex.def)             Requested size: 191.21585pt x 166.82454pt.
 [8 <../svm_time_grayscale.pdf> <../svm_time_rgb.pdf>] [9 <../cnn_grayscale.png>
  <../cnn_rgb.png>]
@@ -590,7 +590,7 @@ y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on project.pdf (24 pages, 464548 bytes).
+Output written on project.pdf (24 pages, 464354 bytes).
 PDF statistics:
  228 PDF objects out of 1000 (max. 8388607)
  157 compressed objects within 2 object streams

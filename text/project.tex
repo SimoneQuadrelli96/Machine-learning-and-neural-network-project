@@ -65,7 +65,7 @@ Fruit and vegetables classification has a key role in many industries: it can be
 The ability of harvesting robots can be enhanced by enforcing fruit and vegetables recognition, indeed it may allow them to recognize not only the type of fruit or vegetable but also its maturity or whether it is rotten. Moreover, autonomous classification provides more consistent quality assessment since it does not depend of the opinion of different workers. \cite{review}
 \\
 The projects analyzes the classification performance of three machine learning algorithms on different fruits. The k-nearest neighbour (KNN) algorithm was used to compute a baseline, a more sophisticated one, the support vector machine (SVM) was later used for classification. The last approach was to construct a convolutional neural network (CNN) because they are known to suit well image classification problems. \\
-The are two different kind of features that were extracted to feed the algorithms: the grayscale and the rgb representation of the images.\\\\
+The are two different kind of features that are extracted to feed the algorithms: the grayscale and the rgb representation of the images.\\\\
 The objective of the project are:
 \begin{enumerate}
 \item Analyze the accuracy result achieved with grayscale features.
@@ -74,12 +74,11 @@ The objective of the project are:
 \end{enumerate}
 
 \section{Dataset and Features}
-The analyzed dataset, known as \textit{Fruits 360}, was originally published in 2017 by Horea Muresan and Mihai Oltean to address fruit and vegetable classification \cite{dataset}. The existence of either too small datasets or too low-quality dataset was the most compelling problem.  On the countrary, this dataset provides more that 70000 images of 114 different fruits and vegetables. Each image has a definition of 100 $\times$ 100 pixels. To further increase the reliability of the results, the authors decided to enrich it with images of rotated fruits and vegetables. However those images make the training process much harder.\\
+The analyzed dataset, known as \textit{Fruits 360}, was originally published in 2017 by Horea Muresan and Mihai Oltean to address fruit and vegetable classification \cite{dataset}. The existence of either too small datasets or too low-quality dataset was the most compelling problem.  On the countrary, this dataset provides more that 70000 images of 114 different fruits and vegetables. Each image has a definition of 100 $\times$ 100 pixels. To further increase the reliability of the results, the authors decided to enrich it with images of rotated fruits and vegetables. However, those images make the training process much harder.\\
 As the authors explain, the dataset was produced as follows: fruits and vegetables were planted in the shaft of a low speed motor (3 rpm) and a short movie of 20 seconds was recorded. However, due to the variations in the lighting conditions, the background was not uniform and a dedicated algorithm was exploited to extract the fruit from the background. Hence, the images were of such high quality that no pre-processing was required.
 It is also worth noticing that the dataset was already split in train and test set, therefore no further splitting was required.\\
 Fruits and vegetables have several distinct visual characteristics that can be extracted from their pictures. Colour, shape, size and texture are the most commonly used features\footnote{Features are the characteristics of an object that can distinguish it from other objects.} in image classification. Among all the possible features that can be extracted from an image, colour features play a key role in fruit and vegetable classification. Indeed, they seem to be suitable for the problem and their computation is very fast and efficient \cite{review}. Thus, the project focuses on the grayscale and rgb representation of the images. \\
-The following lines introduce the reader to some concepts of colour spaces and colour representation.
-Colour spaces are a specific organization of fundamental colours the allows to reproduce a wide variety of colours and shades of gray. Two different colour spaces were exploited in this project: grayscale and rgb.
+The following lines introduce the reader to some concepts of colour spaces and colour representation. Colour spaces are a specific organization of fundamental colours the allows to reproduce a wide variety of colours and shades of gray. Two different colour spaces are exploited in this project: grayscale and rgb.
 \subsection{Rgb colour space}
 The rgb colour model is an additive colour model, meaning that red, green and blue are added together to reproduce a wide array of colors. A color in the rgb colour model is described by indicating how much the red, green, and blue it includes. Therefore, the colour of a pixel is expressed as an rgb triplet (R,G,B) whose components can vary from 0 to 255, since each channel is represented by a byte.
 
@@ -91,11 +90,11 @@ The $\Gamma$ function is defined as:
  x' = \Gamma(x) = Ax^{\gamma}
 \end{equation}
 where $x$ in the pixel intensity, $A$ is a scalar whose value is often $1$ and $\gamma$ is usually $\frac{1}{2.2}$.\\
-To obtain the final grayscale representation $y$ of a pixel $x$, the following linear transformation is applied: \cite{grayscaleconversion}
+To obtain the final grayscale representation $y$ of a pixel $x$, the following linear transformation is applied:
 \begin{equation}
  y = 0.21 R' + 0.71 G' + 0.07  B'
 \end{equation}
-
+\cite{grayscaleconversion}
 \section{Data analysis}
 This section provides the reader an insight of the procedure pursued to analyze the data, it also provides a commentary of the results.\\
 The procedure described in the section is the same for both the grayscale features and the rgb features. Algorithm \ref{schema} provides a brief overview of the analysis.
@@ -237,7 +236,8 @@ When grayscale features are involved the test accuracy of the CNN is about 0.90,
 \noindent The training time of both the nets is about 1 minute and the computation of the prediction requires about 30 seconds. Therefore CNN are faster than some instances of SVM but slower than the KNN.\\
 Overall, the CNNs seem to be the best model to classify images.
 \section{Mathematical background}
-\subsection{Principal component analysis}
+This section provides the mathematical and algorithmic explanation of the algorithm used in the analysis.
+\subsection{PCA}
 This section introduces the mathematical background conserning the Principal component analysis (PCA).\\
 The principal components of a set of data in $R^n$ provide a sequence of best linear approximations to that data in $R^d$, where $d < n$.
 The principal components are computed solving an optimization problem than consists in finding two matrices: the compression matrix $W^{n \times d}$ and  the recovery matrix $U^{d \times n}$. The former matrix maps the features vector from $R^n$ in $R^d$, the latter recovers approximately the origianl data mapping from $R^d$ in $R^n$.
@@ -270,9 +270,9 @@ The algorithm just computes the distance between the test point and all the trai
 \subsection{SVM}
 This section provides an overview of Support Vector Machines, in particular we focus on SVM for binary calssification since it allows math to be simpler and clearer. However, multiclass SVM are built using binary SVMs. The most common technique in practice has been to build  a set one-versus-rest classifiers and to choose the class which classifies the test with greatest margin. Another strategy is to build a set of one-versus-one classifiers, and to choose the class that is selected by the most classifiers. \cite{svm}
 \\
-Support Vector Machines is a model that determines the separating hyperplane $w$ with the maximum margin between the closest positive labels and negative labels. The margin can be defined as:
+Support Vector Machines is a model that determines the separating hyperplane $\textbf{w}$ with the maximum margin between the closest positive labels and negative labels. The margin can be defined as:
 \begin{equation}
-\text{margin(w)} = \min_{i=1,..,m} y_i\textbf{w}^T\textbf{x}_i
+\text{margin(\textbf{w})} = \min_{i=1,..,m} y_i\textbf{w}^T\textbf{x}_i
 \end{equation}
 where $y$ is the class, $\textbf{x}$ is the data vector and $m$ is the number of vectors used to train the model. \\
 The hyperplane found in such a way should reduce the probability of misclassification for points with different labels that are close to one another and close to the hyperplane. \\
@@ -328,7 +328,7 @@ One of the most interesting result emerged from the analysis concenring KNN and 
 \begin{enumerate}
 \item Grayscale features allows to achieve the remarkable accuracy (0.90).
 \item Rgb features provide an 0.04 improvement of the previous result.
-\item Despite its semplicity, Knn has a remarkable accuracy rate (0.91).
+\item Despite its semplicity, knn has a remarkable accuracy rate (0.91).
 \end{enumerate}
 
 \newpage

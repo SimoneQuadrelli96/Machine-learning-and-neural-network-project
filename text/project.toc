@@ -8,7 +8,7 @@
 \contentsline {subsection}{\numberline {3.3}Support Vector Machines}{6}
 \contentsline {subsection}{\numberline {3.4}Convolutional neural network}{8}
 \contentsline {section}{\numberline {4}Mathematical background}{9}
-\contentsline {subsection}{\numberline {4.1}Principal component analysis}{9}
+\contentsline {subsection}{\numberline {4.1}PCA}{9}
 \contentsline {subsection}{\numberline {4.2}KNN}{10}
 \contentsline {subsection}{\numberline {4.3}SVM}{10}
 \contentsline {subsection}{\numberline {4.4}CNN}{11}
